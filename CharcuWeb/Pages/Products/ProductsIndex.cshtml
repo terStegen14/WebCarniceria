@@ -1,0 +1,36 @@
+﻿@* @page
+@model TradicioCarnica.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<h1 class="mb-4">Nuestros productos</h1>
+
+<div class="row">
+    @foreach (var p in Model.products)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+
+                <img src="@(string.IsNullOrEmpty(p.imgurl) ? "/images/no-image.png" : p.imgurl)"
+                     class="card-img-top"
+                     alt="@p.name"
+                     style="height:200px; object-fit:cover;" />
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@p.name</h5>
+
+                    <p class="card-text text-muted">
+                        @p.description
+                    </p>
+
+                    <div class="mt-auto">
+                        <strong>@p.price €</strong>
+                        <span class="text-muted">/@p.PriceUnit.price_unit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+ *@

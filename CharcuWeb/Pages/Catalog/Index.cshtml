@@ -1,0 +1,59 @@
+﻿@page
+@model TradicioCarnica.Pages.Catalog.IndexModel
+
+<section class="container py-5">
+    <h1 class="mb-4">Catàleg de Productes</h1>
+
+    <div class="mb-4">
+        <a asp-page="./Index"
+           class="btn btn-outline-dark @(Model.Catalog.SelectedCategoryId == null ? "active" : "")">
+            Tots
+        </a>
+        @foreach (var c in Model.Catalog.Categories)
+        {
+            var name = c.CategoriesTranslations?.FirstOrDefault()?.Name ?? "Categoria";
+            <a asp-page="./Index"
+               asp-route-categoryId="@c.Id"
+               class="btn btn-outline-dark @(Model.Catalog.SelectedCategoryId == c.Id ? "active" : "")">
+                @name
+            </a>
+        }
+    </div>
+
+    @if (!Model.Catalog.Products.Any())
+    {
+        <p class="text-muted">No hi ha productes disponibles en aquesta categoria.</p>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var p in Model.Catalog.Products)
+            {
+                var name = p.ProductTranslations?.FirstOrDefault()?.Name ?? "Sense nom";
+                var description = p.ProductTranslations?.FirstOrDefault()?.Description ?? "";
+                var priceUnit = p.PriceUnit?.Code ?? "";
+
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="@(p.ImgUrl ?? "/images/no-image.png")" class="card-img-top" />
+                        <div class="card-body">
+                            <h5>@name</h5>
+                            <p>@description</p>
+                            <p class="fw-bold">
+                                @if (p.CurrentPrice.HasValue)
+                                {
+                                    @p.CurrentPrice.Value.ToString("0.00") <text>€/</text>
+                                    @priceUnit
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Preu a consultar</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</section>

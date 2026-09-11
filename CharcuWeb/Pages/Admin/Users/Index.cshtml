@@ -1,0 +1,18 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Users.IndexModel
+@{
+    <h2>Usuarios</h2>
+
+    <table>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@user.Id">Editar</a>
+                </td>
+            </tr>
+        }
+    </table>
+}

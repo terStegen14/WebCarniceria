@@ -1,0 +1,103 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+body, button, input, textarea, select {
+    font-family: 'Montserrat', sans-serif;
+}
+table td {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    vertical-align: middle;
+}
+
+table td a.link-no-style {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: normal;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+table td a.link-no-style:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.sidebar .nav-link {
+    color: #F4F8F4 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(0.9rem, 1.2vw, 1.3rem);
+    font-weight: 550;
+}
+
+.sidebar .nav-link:hover {
+    color: #F4F8F4;
+    opacity: 0.85;
+}
+
+.sidebar .nav-link i {
+    font-size: clamp(1rem, 1.3vw, 1.4rem);
+}
+
+.sidebar img {
+    max-height: clamp(40px, 6vw, 80px);
+}
+
+.sidebar .nav {
+    margin-top: clamp(10px, 4vw, 3rem);
+}
+
+.sidebar-divider {
+    border: none;
+    height: 2px;
+    background-color: #F4F8F4;
+    opacity: 0.25;
+    margin: 0.95rem 0;
+}
+.sidebar {
+    overflow-y: auto;
+}
+
+.sidebar {
+    width: 240px;
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar.collapsed .nav-link span {
+    display: none;
+}
+
+.sidebar.collapsed img {
+    max-height: 40px;
+}
+
+.sidebar .nav-link {
+    white-space: nowrap;
+}
+

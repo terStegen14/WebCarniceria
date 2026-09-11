@@ -1,0 +1,38 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Categories.IndexModel
+
+<h2>Categorías</h2>
+
+<a class="btn btn-success mb-3" asp-page="Upsert">Nueva categoría</a>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th style="width:150px;">Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var c in Model.Categories)
+        {
+            var name = c.CategoriesTranslations?
+            .FirstOrDefault(x => x.LanguageId == 1)?.Name ?? "-";
+
+            <tr>
+                <td>@c.Id</td>
+                <td>@name</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                       asp-page="Upsert"
+                       asp-route-id="@c.Id">
+                        Editar
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,268 @@
+html {
+    font-size: 14px;
+    background-color: #F4F8F4;
+    color: #3E3E3E;
+    position: relative;
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+
+body {
+  margin-bottom: 60px;
+}
+body, button, input, textarea, select {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-custom {
+    background-color: #D32F2F;
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #b71c1c; /* un poco más oscuro al pasar el ratón */
+    color: white;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    transition: all .3s ease;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar.scrolled {
+    background: #F4F8F4;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled a {
+    color: #3E3E3E;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-left: 20px;
+}
+.nav-link {
+    padding: 0;
+}
+.logo-navbar {
+    height: 75px; 
+    width: auto;
+    margin-right:1rem;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url('/images/hero.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.hero p {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.feature {
+    text-align: center;
+}
+
+    .feature .icon {
+        width: 50px;
+        height: 50px;
+        background: #D32F2F;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        font-size: 20px;
+    }
+
+.badge-custom {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #D32F2F;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.schedule div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background: #f1f1f1;
+}
+
+.schedule .active {
+    background: #f8d7da;
+}
+
+body {
+    background-color: #F4F8F4;
+    color: #3E3E3E;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+    font-size: 40px;
+    animation: bounce 1.5s infinite;
+    color: white;
+    text-decoration: none;
+}
+
+    .scroll-down:hover {
+        color: white;
+    }
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+.custom-card {
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1), 
+    0 15px 20px rgba(0,0,0,0.2); 
+}
+
+.card-img-wrapper {
+    overflow: hidden; 
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.custom-card-img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 0; 
+}
+
+.card-info {
+    background: #F4F8F4;
+    padding: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: left;
+    margin-top: -20px;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card {
+    background: #FBFCFB;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.05), 0 15px 20px rgba(0,0,0,0.08);
+    height: 100%;
+}
+
+.info-icon-circle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: #D32F2F;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.schedule div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.schedule .closed {
+    background: #EFEFEF;
+    color: #A0A0A0;
+}
+
+.schedule .active {
+    background: #f8d7da;
+    color: #3E3E3E;
+    font-weight: 500;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #F4F8F4;
+    padding: 12px 15px;
+    border-radius: 12px;
+}

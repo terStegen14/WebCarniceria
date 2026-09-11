@@ -1,0 +1,53 @@
+﻿@page "{id?}"
+@model TradicioCarnica.Pages.Admin.Categories.UpsertModel
+
+<h2>@(Model.IsEdit ? "Editar categoría" : "Nueva categoría")</h2>
+
+<form method="post">
+
+	<input type="hidden" asp-for="Category.Id" />
+
+	<h4>Traducciones</h4>
+
+	<ul class="nav nav-tabs">
+
+		@for (int i = 0; i < Model.Languages.Count; i++)
+		{
+			var lang = Model.Languages[i];
+
+			<li class="nav-item">
+				<a class="nav-link @(i == 0 ? "active" : "")"
+				   data-bs-toggle="tab"
+				   href="#lang-@lang.Id">
+					@lang.Code
+				</a>
+			</li>
+		}
+
+	</ul>
+
+	<div class="tab-content border p-3">
+
+		@for (int i = 0; i < Model.Languages.Count; i++)
+		{
+			var lang = Model.Languages[i];
+
+			<div class="tab-pane fade @(i == 0 ? "show active" : "")"
+				 id="lang-@lang.Id">
+
+				<label>Nombre</label>
+
+				<input name="Translations[@lang.Id].Name"
+					   value="@Model.Translations[lang.Id].Name"
+					   class="form-control" />
+
+			</div>
+		}
+
+	</div>
+
+	<button class="btn btn-success mt-3">Guardar</button>
+
+	<a asp-page="Index" class="btn btn-secondary mt-3">Cancelar</a>
+
+</form>

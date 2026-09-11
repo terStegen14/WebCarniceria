@@ -1,0 +1,39 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.PriceUnits.IndexModel
+
+<h2>Unidades de precio</h2>
+
+<a class="btn btn-success mb-3" asp-page="Upsert">Nueva unidad</a>
+
+<table class="table table-bordered">
+
+	<thead class="table-dark">
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+
+		@foreach (var u in Model.Units)
+		{
+			<tr>
+
+				<td>@u.Code</td>
+				<td>@u.Description</td>
+
+				<td>
+					<a class="btn btn-primary btn-sm"
+					   asp-page="Upsert"
+					   asp-route-id="@u.Id">
+						Editar
+					</a>
+				</td>
+
+			</tr>
+		}
+
+	</tbody>
+</table>
