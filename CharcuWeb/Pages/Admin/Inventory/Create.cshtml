@@ -1,0 +1,33 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Inventory.CreateModel
+@{
+    ViewData["Title"] = "Nuevo inventario";
+}
+
+<h2>Nuevo inventario</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Inventory.Name" class="form-label">Nombre</label>
+        <input asp-for="Inventory.Name" class="form-control" />
+        <span asp-validation-for="Inventory.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Inventory.WarehouseId" class="form-label">Almacén</label>
+        <select asp-for="Inventory.WarehouseId" asp-items="Model.Warehouses" class="form-select"><option value="">-- Selecciona --</option></select>
+        <span asp-validation-for="Inventory.WarehouseId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Inventory.Date" class="form-label">Fecha</label>
+        <input asp-for="Inventory.Date" type="date" class="form-control" />
+    </div>
+
+    <button class="btn btn-success">Crear y empezar a contar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

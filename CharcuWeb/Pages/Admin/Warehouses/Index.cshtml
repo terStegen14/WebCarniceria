@@ -1,0 +1,35 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Warehouses.IndexModel
+@{
+    ViewData["Title"] = "Almacenes";
+}
+
+<h2>Almacenes</h2>
+<a class="btn btn-success mb-3" asp-page="Upsert">Nuevo almacén</a>
+
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <div class="alert alert-danger">@Model.Error</div>
+}
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr><th>Código</th><th>Nombre</th><th style="width:170px;">Acciones</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var w in Model.Warehouses)
+        {
+            <tr>
+                <td>@w.Code</td>
+                <td>@w.Name</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="Upsert" asp-route-id="@w.Id">Editar</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@w.Id" class="d-inline"
+                          onsubmit="return confirm('¿Eliminar este almacén?');">
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

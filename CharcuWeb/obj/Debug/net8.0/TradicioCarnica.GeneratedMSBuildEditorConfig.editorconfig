@@ -64,8 +64,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllc1xVcHNlcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Enums/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRW51bXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Enums/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRW51bXNcVXBzZXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Inventory/Count.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW52ZW50b3J5XENvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Inventory/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW52ZW50b3J5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Inventory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW52ZW50b3J5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Offers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT2ZmZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Offers/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT2ZmZXJzXFVwc2VydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Prices/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJpY2VzXEhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Prices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJpY2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/PriceUnits/Index.cshtml]
@@ -76,6 +112,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJpY2VVbml0c1xVcHNlcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Products/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,8 +124,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcVXBzZXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Stock/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RvY2tcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Stock/Movement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RvY2tcTW92ZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Stock/Movements.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RvY2tcTW92ZW1lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Stock/Transfers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3RvY2tcVHJhbnNmZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Users/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcVXBzZXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Warehouses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cV2FyZWhvdXNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/Warehouses/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cV2FyZWhvdXNlc1xVcHNlcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Admin/_AdminLayout.cshtml]
@@ -118,6 +186,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Products/ProductsIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdHNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Shared/_AuthLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BdXRoTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Trabajos/WebCarniceria/CharcuWeb/Pages/Shared/_Footer.cshtml]

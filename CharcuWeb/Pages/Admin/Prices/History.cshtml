@@ -1,0 +1,63 @@
+﻿@page "{id:long}"
+@model TradicioCarnica.Pages.Admin.Prices.HistoryModel
+@{
+    ViewData["Title"] = "Historial de precios";
+}
+
+<h2>Historial de precios</h2>
+<p class="text-muted">@Model.ProductName (@Model.Product.Code) · unidad: @Model.Product.PriceUnit?.Code</p>
+
+<div class="card p-3 mb-4">
+    <form method="post" class="row g-3 align-items-end">
+        <div class="col-auto">
+            <label class="form-label">Nuevo precio (€)</label>
+            <input asp-for="NewPrice" type="number" step="0.01" min="0.01" class="form-control" />
+            <span asp-validation-for="NewPrice" class="text-danger"></span>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-success">Aplicar precio</button>
+            <a asp-page="Index" class="btn btn-secondary">Volver</a>
+        </div>
+    </form>
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="alert alert-info mt-3 mb-0">@Model.Message</div>
+    }
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr><th>Precio</th><th>Desde</th><th>Hasta</th><th style="width:120px;"></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var pr in Model.History)
+        {
+            <tr>
+                <td>@pr.Price.ToString("0.00") €</td>
+                <td>@pr.DateFrom.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    @if (pr.DateTo == null)
+                    {
+                        <span class="badge bg-success">Vigente</span>
+                    }
+                    else
+                    {
+
+                        @pr.DateTo.Value.ToString("dd/MM/yyyy HH:mm")
+                    }
+                </td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@Model.Product.Id"
+                          asp-route-priceId="@pr.Id"
+                          onsubmit="return confirm('¿Eliminar este registro de precio?');">
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

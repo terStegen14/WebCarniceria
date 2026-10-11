@@ -1,0 +1,31 @@
+﻿@page "{id:long?}"
+@model TradicioCarnica.Pages.Admin.Enums.UpsertModel
+@{
+    ViewData["Title"] = Model.IsEdit ? "Editar tipo" : "Nuevo tipo";
+}
+
+<h2>@ViewData["Title"] <small class="text-muted fs-6">(@Model.Item.Discriminator)</small></h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Item.Id" />
+    <input type="hidden" asp-for="Item.Discriminator" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Item.Code" class="form-label">Código</label>
+        <input asp-for="Item.Code" class="form-control" />
+        <span asp-validation-for="Item.Code" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Item.Name" class="form-label">Nombre</label>
+        <input asp-for="Item.Name" class="form-control" />
+        <span asp-validation-for="Item.Name" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-success">Guardar</button>
+    <a asp-page="Index" asp-route-discriminator="@Model.Item.Discriminator" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

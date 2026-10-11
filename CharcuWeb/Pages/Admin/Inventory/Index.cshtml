@@ -1,0 +1,51 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Inventory.IndexModel
+@{
+    ViewData["Title"] = "Inventario";
+}
+
+<h2>Inventario</h2>
+<a class="btn btn-success mb-3" asp-page="Create">Nuevo inventario</a>
+
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <div class="alert alert-danger">@Model.Error</div>
+}
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr><th>Nombre</th><th>Almacén</th><th>Fecha</th><th>Contados</th><th>Estado</th><th style="width:200px;">Acciones</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model.Items)
+        {
+            <tr>
+                <td>@i.Name</td>
+                <td>@i.Warehouse.Name</td>
+                <td>@i.Date.ToString("dd/MM/yyyy")</td>
+                <td>@(i.Items?.Count ?? 0)</td>
+                <td>
+                    @if (i.Applied)
+                    {
+                        <span class="badge bg-success">Aplicado @i.DateApplied?.ToString("dd/MM/yyyy")</span>
+                    }
+                    else
+                    {
+
+                        <span class="badge bg-warning text-dark">Pendiente</span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="Count" asp-route-id="@i.Id">@(i.Applied ? "Ver" : "Contar")</a>
+                    @if (!i.Applied)
+                    {
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@i.Id" class="d-inline"
+                              onsubmit="return confirm('¿Eliminar este inventario?');">
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

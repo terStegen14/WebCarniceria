@@ -590,3 +590,4 @@ C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\refint\TradicioCarnica.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.pdb
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.genruntimeconfig.cache
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\ref\TradicioCarnica.dll
+C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.sourcelink.json

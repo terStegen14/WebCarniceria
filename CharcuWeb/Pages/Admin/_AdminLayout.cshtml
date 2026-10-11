@@ -10,109 +10,72 @@
     <link href="/css/admin.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row min-vh-100">
-            <!-- Sidebar -->
-            <nav class="sidebar col-md-2 col-sm-3 p-3 vh-100 position-fixed" style="background-color: #3E2723">
-                @* <button class="btn btn-sm text-white mb-3 d-none d-md-block" id="collapseSidebar">
-                    <i class="bi bi-list"></i>
-                </button> *@
-                <div class="text-center mb-3">
-                    <img src="~/images/logo.png" alt="Logo"
-                         class="img-fluid"
-                         style="max-height: 80px;">
-                </div>
-                <ul class="nav flex-column">
+    <div class="admin-wrapper">
 
-                    @* <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/Index">
-                            <i class="bi bi-speedometer2 me-2"></i> Inicio
-                        </a>
-                    </li> *@
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/Users/Index">
-                            <i class="bi bi-person-fill me-2"></i> Usuarios
-                        </a>
-                    </li>
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <img src="~/images/logo.png" alt="Logo" />
+            </div>
 
-                    <hr class="sidebar-divider">
+            <ul class="nav flex-column sidebar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Users/Index"><i class="bi bi-person-fill"></i><span>Usuarios</span></a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/Products/Index">
-                            <i class="bi bi-bag-fill me-2"></i> Productos
-                        </a>
-                    </li>
+                <hr class="sidebar-divider" />
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/Categories/Index">
-                            <i class="bi bi-grid-fill me-2"></i> Categorías
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Products/Index"><i class="bi bi-bag-fill"></i><span>Productos</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Categories/Index"><i class="bi bi-grid-fill"></i><span>Categorías</span></a>
+                </li>
 
-                    <hr class="sidebar-divider">
+                <hr class="sidebar-divider" />
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/Precios/Index">
-                            <i class="bi bi-tags-fill me-2"></i> Precios
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Prices/Index"><i class="bi bi-tags-fill"></i><span>Precios</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/PriceUnits/Index"><i class="bi bi-cash-stack"></i><span>Unidades precio</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Offers/Index"><i class="bi bi-percent"></i><span>Ofertas</span></a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/PriceUnits/Index">
-                            <i class="bi bi-cash-stack me-2"></i> Unidades precio
-                        </a>
-                    </li>
+                <hr class="sidebar-divider" />
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/UnidadesPrecio/Index">
-                            <i class="bi bi-percent me-2"></i> Ofertas
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Stock/Index"><i class="bi bi-clipboard2-fill"></i><span>Stock</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Warehouses/Index"><i class="bi bi-box-fill"></i><span>Almacenes</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Inventory/Index"><i class="bi bi-calculator-fill"></i><span>Inventario</span></a>
+                </li>
 
-                    <hr class="sidebar-divider">
+                <hr class="sidebar-divider" />
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/Precios/Index">
-                            <i class="bi bi-clipboard2-fill me-2"></i> Stock
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Admin/Enums/Index"><i class="bi bi-list-check"></i><span>Tipos</span></a>
+                </li>
+            </ul>
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/UnidadesPrecio/Index">
-                            <i class="bi bi-box-fill me-2"></i> Almacenes
-                        </a>
-                    </li>
+            <div class="sidebar-footer">
+                <a class="nav-link" asp-page="/Index"><i class="bi bi-box-arrow-up-right"></i><span>Ver web</span></a>
+            </div>
+        </nav>
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Admin/UnidadesPrecio/Index">
-                            <i class="bi bi-calculator-fill me-2"></i> Inventario
-                        </a>
-                    </li>
-
-                </ul>
-            </nav>
-
-            <!-- Main content -->
-            <main class="col-md-10 col-sm-9 p-4 offset-md-2 offset-sm-3">
-                <button class="btn btn-dark d-md-none mb-3" id="menuToggle">
-                    <i class="bi bi-list"></i>
-                </button>
-                @RenderBody()
-            </main>
-        </div>
+        <main class="admin-main">
+            <button class="btn btn-dark d-md-none mb-3" id="menuToggle"><i class="bi bi-list"></i></button>
+            @RenderBody()
+        </main>
     </div>
+
     <script>
-        const sidebar = document.querySelector(".sidebar");
-        const collapseBtn = document.getElementById("collapseSidebar");
-        const menuBtn = document.getElementById("menuToggle");
-
-        collapseBtn?.addEventListener("click", () => {
-            sidebar.classList.toggle("collapsed");
-        });
-
-        menuBtn?.addEventListener("click", () => {
-            sidebar.classList.toggle("show");
+        document.getElementById("menuToggle")?.addEventListener("click", () => {
+            document.getElementById("sidebar").classList.toggle("show");
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -23,7 +23,7 @@ namespace TradicioCarnica.Models
         public TWarehouse Warehouse { get; set; }
 
         [Required]
-        [Column(TypeName = "decimal(10,2)")]
+        [Column(TypeName = "decimal(10,5)")]
         public decimal Quantity { get; set; }
     }
 }

@@ -1,0 +1,54 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Offers.IndexModel
+@{
+    ViewData["Title"] = "Ofertas";
+}
+
+<h2>Ofertas</h2>
+<a class="btn btn-success mb-3" asp-page="Upsert">Nueva oferta</a>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr><th>Tipo</th><th>Condición</th><th>Desde</th><th>Hasta</th><th>Productos</th><th>Estado</th><th style="width:170px;">Acciones</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var o in Model.Items)
+        {
+            <tr>
+                <td>@Model.TypeName(o.OfferType)</td>
+                <td>@Model.Summary(o)</td>
+                <td>@o.DateFrom.ToString("dd/MM/yyyy")</td>
+                <td>@o.DateTo.ToString("dd/MM/yyyy")</td>
+                <td>@(o.OfferProducts?.Count ?? 0)</td>
+                <td>
+                    @if (!o.Active)
+                    {
+                        <span class="badge bg-secondary">Inactiva</span>
+                    }
+                    else if (o.DateTo.Date < DateTime.Today)
+                    {
+
+                        <span class="badge bg-dark">Caducada</span>
+                    }
+                    else if (o.DateFrom.Date > DateTime.Today)
+                    {
+
+                        <span class="badge bg-info text-dark">Programada</span>
+                    }
+                    else
+                    {
+
+                        <span class="badge bg-success">Vigente</span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="Upsert" asp-route-id="@o.Id">Editar</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@o.Id" class="d-inline"
+                          onsubmit="return confirm('¿Eliminar esta oferta?');">
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

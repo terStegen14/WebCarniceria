@@ -1,0 +1,44 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Stock.TransferModel
+@{
+    ViewData["Title"] = "Traspaso entre almacenes";
+}
+
+<h2>Traspaso entre almacenes</h2>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label class="form-label">Producto</label>
+        <select asp-for="Input.ProductId" asp-items="Model.Products" class="form-select"><option value="">-- Selecciona --</option></select>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Almacén origen</label>
+            <select asp-for="Input.FromWarehouseId" asp-items="Model.Warehouses" class="form-select"><option value="">-- Selecciona --</option></select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Almacén destino</label>
+            <select asp-for="Input.ToWarehouseId" asp-items="Model.Warehouses" class="form-select"><option value="">-- Selecciona --</option></select>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tipo de movimiento</label>
+        <select asp-for="Input.MovementType" asp-items="Model.Types" class="form-select"><option value="">-- Selecciona --</option></select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cantidad</label>
+        <input asp-for="Input.Quantity" type="number" step="0.01" min="0.01" class="form-control" />
+    </div>
+
+    <button class="btn btn-success">Traspasar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

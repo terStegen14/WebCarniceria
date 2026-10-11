@@ -1,0 +1,84 @@
+﻿@page "{id:long}"
+@model TradicioCarnica.Pages.Admin.Inventory.CountModel
+@{
+    ViewData["Title"] = "Conteo de inventario";
+}
+
+<h2>@Model.Inventory.Name</h2>
+<p class="text-muted">
+    Almacén: <strong>@Model.Inventory.Warehouse.Name</strong> · Fecha: @Model.Inventory.Date.ToString("dd/MM/yyyy")
+    @if (Model.Inventory.Applied)
+    {
+        <span class="badge bg-success ms-2">Aplicado el @Model.Inventory.DateApplied?.ToString("dd/MM/yyyy HH:mm")</span>
+    }
+</p>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-success">@Model.Message</div>
+}
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <div class="alert alert-danger">@Model.Error</div>
+}
+
+<form method="post">
+    <table class="table table-striped table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Código</th>
+                <th>Producto</th>
+                <th class="text-end">Stock sistema</th>
+                <th style="width:180px;">Contado</th>
+                <th class="text-end">Diferencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+                var r = Model.Rows[i];
+                <tr>
+                    <td>@r.Code<input type="hidden" asp-for="Rows[i].ProductId" /></td>
+                    <td>@r.Name</td>
+                    <td class="text-end" data-system="@r.SystemQty.ToString(System.Globalization.CultureInfo.InvariantCulture)">
+                        @r.SystemQty.ToString("0.##") @r.Unit
+                    </td>
+                    <td>
+                        <input asp-for="Rows[i].Counted" type="number" step="any" min="0"
+                               class="form-control counted" disabled="@Model.Inventory.Applied" />
+                    </td>
+                    <td class="text-end diff"></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!Model.Inventory.Applied)
+    {
+        <button class="btn btn-primary" asp-page-handler="Save">Guardar conteo</button>
+        <button class="btn btn-success" asp-page-handler="Apply"
+                onclick="return confirm('Se generarán movimientos de ajuste y el stock quedará igual a lo contado. ¿Continuar?');">
+            Aplicar ajustes
+        </button>
+    }
+    <a asp-page="Index" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+    <script>
+        function recalc() {
+            document.querySelectorAll('tbody tr').forEach(tr => {
+                const input = tr.querySelector('.counted');
+                const diffCell = tr.querySelector('.diff');
+                if (!input || !diffCell) return;
+                if (input.value === '') { diffCell.textContent = ''; return; }
+                const system = parseFloat(tr.querySelector('[data-system]').dataset.system);
+                const diff = parseFloat(input.value) - system;
+                diffCell.textContent = (diff > 0 ? '+' : '') + (Math.round(diff * 100) / 100);
+                diffCell.className = 'text-end diff ' + (diff < 0 ? 'text-danger' : diff > 0 ? 'text-success' : '');
+            });
+        }
+        document.querySelectorAll('.counted').forEach(i => i.addEventListener('input', recalc));
+        recalc();
+    </script>
+}

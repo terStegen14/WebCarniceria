@@ -1,0 +1,42 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Stock.MovementsModel
+@{
+    ViewData["Title"] = "Movimientos de stock";
+}
+
+<h2>Movimientos de stock</h2>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-4">
+        <select name="productId" class="form-select" asp-items="Model.Products"><option value="">Todos los productos</option></select>
+    </div>
+    <div class="col-md-4">
+        <select name="warehouseId" class="form-select" asp-items="Model.Warehouses"><option value="">Todos los almacenes</option></select>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-primary">Filtrar</button>
+        <a asp-page="Index" class="btn btn-secondary">Volver</a>
+    </div>
+</form>
+
+<p class="text-muted">Últimos 200 movimientos. Los movimientos no se editan: para corregir un error, registra uno nuevo que lo compense.</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr><th>Fecha</th><th>Almacén</th><th>Producto</th><th>Tipo</th><th class="text-end">Cantidad</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model.Items)
+        {
+            <tr>
+                <td>@m.Date.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@m.Warehouse.Name</td>
+                <td>@m.Product.Code</td>
+                <td>@(Model.TypeNames.TryGetValue(m.MovementType, out var t) ? t : m.MovementType.ToString())</td>
+                <td class="text-end @(m.Quantity < 0 ? "text-danger" : "text-success")">
+                    @(m.Quantity > 0 ? "+" : "")@m.Quantity.ToString("0.##")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

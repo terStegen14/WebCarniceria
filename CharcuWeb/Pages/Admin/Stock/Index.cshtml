@@ -1,0 +1,38 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Stock.IndexModel
+@{
+    ViewData["Title"] = "Stock";
+}
+
+<h2>Stock</h2>
+
+<div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
+    <a class="btn btn-success" asp-page="Movement">Nuevo movimiento</a>
+    <a class="btn btn-primary" asp-page="Transfer">Traspaso entre almacenes</a>
+    <a class="btn btn-outline-dark" asp-page="Movements">Ver movimientos</a>
+
+    <form method="get" class="ms-auto d-flex gap-2">
+        <select name="warehouseId" class="form-select" asp-items="Model.Warehouses" onchange="this.form.submit()">
+            <option value="">Todos los almacenes</option>
+        </select>
+    </form>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr><th>Almacén</th><th>Código</th><th>Producto</th><th class="text-end">Cantidad</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model.Items)
+        {
+            var name = s.Product.ProductTranslations?.FirstOrDefault(t => t.LanguageId == 1)?.Name
+            ?? s.Product.ProductTranslations?.FirstOrDefault()?.Name ?? "-";
+            <tr>
+                <td>@s.Warehouse.Name</td>
+                <td>@s.Product.Code</td>
+                <td>@name</td>
+                <td class="text-end">@s.Quantity.ToString("0.##") @s.Product.PriceUnit?.Code</td>
+            </tr>
+        }
+    </tbody>
+</table>

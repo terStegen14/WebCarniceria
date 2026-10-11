@@ -1,0 +1,21 @@
+﻿@page "{id:long}"
+@model TradicioCarnica.Pages.Admin.Products.DeleteModel
+
+<h2>Eliminar producto</h2>
+
+@if (Model.Product == null)
+{
+    <p class="text-muted">Producto no encontrado.</p>
+}
+else
+{
+    var name = Model.Product.ProductTranslations?.FirstOrDefault()?.Name ?? Model.Product.Code;
+
+    <p>¿Seguro que quieres eliminar <strong>@name</strong>?</p>
+
+    <form method="post">
+        <input type="hidden" asp-for="Product.Id" />
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+}

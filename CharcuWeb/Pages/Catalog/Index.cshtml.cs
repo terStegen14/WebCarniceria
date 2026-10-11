@@ -33,10 +33,10 @@ namespace TradicioCarnica.Pages.Catalog
 
             var productsQuery = _context.TProducts
                 .Where(p => p.Active)
-                .Include(p => p.ProductTranslations
-                    .Where(t => t.LanguageId == lang))
+                .Include(p => p.ProductTranslations.Where(t => t.LanguageId == lang))
                 .Include(p => p.PriceUnit)
                 .Include(p => p.Prices)
+                .Include(p => p.Category).ThenInclude(c => c.CategoriesTranslations.Where(t => t.LanguageId == lang))
                 .AsQueryable();
 
             if (categoryId.HasValue)

@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Trabajos\\WebCarniceria\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\pages\\admin\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\pages\\admin\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\pages\\admin\\inventory\\count.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\pages\\admin\\inventory\\count.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\pages\\admin\\offers\\upsert.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\pages\\admin\\offers\\upsert.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +31,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "CharcuWeb\\Pages\\Index.cshtml",
-              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Index.cshtml",
-              "RelativeToolTip": "CharcuWeb\\Pages\\Index.cshtml",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAAALQAAAArAAAAAAAAAA==",
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Admin\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "CharcuWeb\\Pages\\Admin\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Admin\\_AdminLayout.cshtml",
+              "RelativeToolTip": "CharcuWeb\\Pages\\Admin\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-01T20:39:56.197Z",
+              "WhenOpened": "2026-10-11T10:23:53.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "CharcuWeb\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "CharcuWeb\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAPoAAAAAAAAAAAAqwAsBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-07-01T20:39:43.893Z"
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Program.cs",
+              "RelativeDocumentMoniker": "CharcuWeb\\Program.cs",
+              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Program.cs",
+              "RelativeToolTip": "CharcuWeb\\Program.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEwAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-10T11:09:12.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Count.cshtml.cs",
+              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Admin\\Inventory\\Count.cshtml.cs",
+              "RelativeDocumentMoniker": "CharcuWeb\\Pages\\Admin\\Inventory\\Count.cshtml.cs",
+              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Admin\\Inventory\\Count.cshtml.cs",
+              "RelativeToolTip": "CharcuWeb\\Pages\\Admin\\Inventory\\Count.cshtml.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAqwDwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-10T11:08:02.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Upsert.cshtml.cs",
+              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Admin\\Offers\\Upsert.cshtml.cs",
+              "RelativeDocumentMoniker": "CharcuWeb\\Pages\\Admin\\Offers\\Upsert.cshtml.cs",
+              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Admin\\Offers\\Upsert.cshtml.cs",
+              "RelativeToolTip": "CharcuWeb\\Pages\\Admin\\Offers\\Upsert.cshtml.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAiwHUAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-10T11:07:56.971Z"
             }
           ]
         }

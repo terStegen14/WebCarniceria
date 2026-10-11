@@ -1,0 +1,49 @@
+﻿@page
+@model TradicioCarnica.Pages.Admin.Prices.IndexModel
+@{
+    ViewData["Title"] = "Precios";
+}
+
+<h2>Precios</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Código</th>
+            <th>Producto</th>
+            <th>Precio actual</th>
+            <th>Desde</th>
+            <th style="width:140px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Products)
+        {
+            var name = p.ProductTranslations?.FirstOrDefault(t => t.LanguageId == Model.LanguageId)?.Name
+            ?? p.ProductTranslations?.FirstOrDefault()?.Name ?? "-";
+            var current = p.Prices?.OrderByDescending(x => x.DateFrom).FirstOrDefault();
+
+            <tr class="@(p.Active ? "" : "text-muted")">
+                <td>@p.Code</td>
+                <td>@name</td>
+                <td>
+                    @if (current != null)
+                    {
+                        @current.Price.ToString("0.00")
+                        <text> €/</text>
+
+                        @p.PriceUnit?.Code
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin precio</span>
+                    }
+                </td>
+                <td>@current?.DateFrom.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="History" asp-route-id="@p.Id">Historial / Cambiar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -21,6 +21,11 @@ namespace TradicioCarnica.Models
         [Required]
         public DateTime Date { get; set; }
 
+        [Required]
+        public bool Applied { get; set; }
+
+        public DateTime? DateApplied { get; set; }
+
         public ICollection<TInventoryItems>? Items { get; set; }
     }
 }

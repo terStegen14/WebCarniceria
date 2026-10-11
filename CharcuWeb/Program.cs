@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using TradicioCarnica.Services;
+using TradicioCarnica.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,7 +47,10 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeFolder("/Admin", "AdminOnly");
-});
+})
+.AddMvcOptions(o => o.ModelBinderProviders.Insert(0, new InvariantDecimalModelBinderProvider()));
+
+builder.Services.AddScoped<StockService>();
 
 var app = builder.Build();
 //using var scope = app.Services.CreateScope();
