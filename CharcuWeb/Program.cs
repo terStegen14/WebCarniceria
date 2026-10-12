@@ -1,14 +1,14 @@
-using TradicioCarnica.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
-using TradicioCarnica.Services;
+using Microsoft.EntityFrameworkCore;
+using TradicioCarnica.Data;
 using TradicioCarnica.Infrastructure;
+using TradicioCarnica.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔹 Localización
+// Localización
 builder.Services.AddLocalization();
 
 var supportedCultures = new[]
@@ -19,19 +19,26 @@ var supportedCultures = new[]
 
 var localizationOptions = new RequestLocalizationOptions
 {
-    DefaultRequestCulture = new RequestCulture("es"),
+    DefaultRequestCulture = new RequestCulture("es"),   // si el navegador no es es/ca
     SupportedCultures = supportedCultures,
     SupportedUICultures = supportedCultures
 };
-localizationOptions.RequestCultureProviders.Insert(0, new AcceptLanguageHeaderRequestCultureProvider());
-localizationOptions.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+// Orden: 1) ?culture=ca  2) cookie (para un futuro selector)  3) idioma del navegador
+localizationOptions.RequestCultureProviders.Clear();
+localizationOptions.RequestCultureProviders.Add(new QueryStringRequestCultureProvider());
+localizationOptions.RequestCultureProviders.Add(new CookieRequestCultureProvider());
+localizationOptions.RequestCultureProviders.Add(new AcceptLanguageHeaderRequestCultureProvider());
+
+// Base de datos
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+// Identity
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -43,58 +50,21 @@ builder.Services.AddAuthorization(options =>
         policy.RequireRole("Admin"));
 });
 
-// Razor Pages + protecci�n de carpeta Admin
+// Razor Pages + protección de la carpeta Admin y del registro de usuarios
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeFolder("/Admin", "AdminOnly");
+    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Register", "AdminOnly");
 })
 .AddMvcOptions(o => o.ModelBinderProviders.Insert(0, new InvariantDecimalModelBinderProvider()));
 
+// Servicios propios
 builder.Services.AddScoped<StockService>();
 
 var app = builder.Build();
-//using var scope = app.Services.CreateScope();
-//var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-//Crear rol Admin si no existe
-//if (!await roleManager.RoleExistsAsync("Admin"))
-//{
-//    await roleManager.CreateAsync(new IdentityRole("Admin"));
-//}
-
-//Crear usuario superadmin si no existe
-//var adminEmail = "superadmin@superadmin.com";
-//var adminUser = await userManager.FindByEmailAsync(adminEmail);
-//if (adminUser == null)
-//{
-//    adminUser = new IdentityUser
-//    {
-//        UserName = "SuperAdmin",
-//        Email = adminEmail,
-//        EmailConfirmed = true
-//    };
-//    var result = await userManager.CreateAsync(adminUser, "SuperAdmin123!");
-
-//    if (!result.Succeeded)
-//    {
-//        foreach (var error in result.Errors)
-//        {
-//            Console.WriteLine(error.Description);
-//        }
-//        throw new Exception("Error creando el usuario superadmin");
-//    }
-//}
-
-////A�adir rol
-//if (!await userManager.IsInRoleAsync(adminUser, "Admin"))
-//{
-//    await userManager.AddToRoleAsync(adminUser, "Admin");
-//}
 
 app.UseRequestLocalization(localizationOptions);
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -102,7 +72,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // HSTS: 30 días por defecto; ver https://aka.ms/aspnetcore-hsts
     app.UseHsts();
 }
 

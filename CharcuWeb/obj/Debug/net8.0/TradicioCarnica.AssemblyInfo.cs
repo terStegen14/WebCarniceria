@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TradicioCarnica")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96ae51374592b742a200fb73300abcaf3b91798d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c87496a044677af2799657dd5e5595c7436feada")]
 [assembly: System.Reflection.AssemblyProductAttribute("TradicioCarnica")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TradicioCarnica")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

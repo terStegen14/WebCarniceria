@@ -184,23 +184,97 @@ body {
     }
 }
 
-.custom-card {
-    border-radius: 20px;
+.section-kicker {
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #D32F2F;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: #3E2723;
+    margin: .4rem 0 1rem;
+}
+
+.section-lead {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #6c757d;
+}
+
+.cat-tile {
+    position: relative;
+    display: block;
+    height: 340px;
+    border-radius: 24px;
     overflow: hidden;
-    min-height: 220px; /* antes 350px */
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1), 0 15px 20px rgba(0,0,0,.15);
+}
+
+    .cat-tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .6s ease;
+    }
+
+    .cat-tile:hover img {
+        transform: scale(1.08);
+    }
+
+.cat-overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1), 0 15px 20px rgba(0,0,0,0.2);
+    justify-content: flex-end;
+    text-align: left;
+    padding: 28px;
+    background: linear-gradient(to top, rgba(30,15,12,.9) 0%, rgba(30,15,12,.4) 55%, rgba(30,15,12,0) 100%);
 }
 
-.card-img-wrapper {
-    overflow: hidden;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    aspect-ratio: 16 / 9; /* nuevo: evita que la imagen crezca sin control */
+    .cat-overlay h3 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .cat-overlay p {
+        font-size: .95rem;
+        opacity: .9;
+        margin-bottom: 14px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+.cat-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    font-weight: 600;
+    font-size: .9rem;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #D32F2F;
+    transition: gap .2s ease;
 }
 
+.cat-tile:hover .cat-link {
+    gap: 12px;
+}
+
+@media (max-width: 767.98px) {
+    .cat-tile {
+        height: 260px;
+    }
+}
 .card-info h5 {
     font-size: 20px; /* nuevo */
     font-weight: 600;
@@ -293,4 +367,73 @@ body {
 .auth-links a {
     color: #3E2723;
     font-weight: 500;
+}
+
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 10px 16px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+        line-height: 1.2;
+        white-space: normal;
+        max-width: calc(100% - 70px);
+    }
+
+    .logo-navbar {
+        height: 44px;
+        margin-right: .6rem !important;
+    }
+
+    .nav-item {
+        font-size: 1.15rem;
+        margin-left: 0;
+        padding: 10px 4px;
+    }
+
+    /* Panel del menú desplegado */
+    .navbar-collapse {
+        background: rgba(30, 15, 12, .96);
+        border-radius: 14px;
+        margin-top: 10px;
+        padding: 6px 16px;
+    }
+
+    .navbar.scrolled .navbar-collapse {
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    }
+
+    .navbar-toggler {
+        border-color: rgba(255,255,255,.6);
+    }
+
+    .navbar.scrolled .navbar-toggler {
+        border-color: rgba(62,39,35,.5);
+    }
+
+    .navbar.scrolled .navbar-toggler-icon {
+        filter: invert(1); /* icono oscuro sobre fondo claro */
+    }
+}
+
+#catalogo {
+    scroll-margin-top: 110px; /* para que la barra fija no tape los filtros al saltar */
+}
+
+.catalog-filters .form-control:focus,
+.catalog-filters .form-select:focus {
+    border-color: #3E2723;
+    box-shadow: 0 0 0 .2rem rgba(62, 39, 35, .15);
+}
+
+.pagination .page-link {
+    color: #3E2723;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #3E2723;
+    border-color: #3E2723;
+    color: #fff;
 }

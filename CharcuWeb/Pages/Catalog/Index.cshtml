@@ -7,80 +7,63 @@
 <section class="catalog-hero d-flex align-items-center text-center text-white"
          style="position:relative; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/hero.png'); background-size:cover; background-position:center; padding: 120px 0 60px;">
     <div class="container">
-        <h1 class="fw-bold" style="font-size: 56px;">Catàleg de Productes</h1>
+        <h1 class="fw-bold" style="font-size: clamp(2rem, 7vw, 3.5rem);">Catàleg de Productes</h1>
         <p class="lead">Qualitat i tradició en cada tall des de 1999</p>
     </div>
 </section>
 
 <section class="container py-5">
 
-    <div class="d-flex flex-wrap gap-2 justify-content-center mb-5" id="categorias">
-        <a asp-page="./Index"
+    <div class="d-flex flex-wrap gap-2 justify-content-center mb-5 category-pills" id="categorias">
+        <a asp-page="./Index" data-category=""
            class="btn btn-custom-outline @(Model.Catalog.SelectedCategoryId == null ? "active" : "")">
             Tots
         </a>
         @foreach (var c in Model.Catalog.Categories)
         {
             var name = c.CategoriesTranslations?.FirstOrDefault()?.Name ?? "Categoria";
-            <a asp-page="./Index"
-               asp-route-categoryId="@c.Id"
+            <a asp-page="./Index" asp-route-categoryId="@c.Id" data-category="@c.Id"
                class="btn btn-custom-outline @(Model.Catalog.SelectedCategoryId == c.Id ? "active" : "")">
                 @name
             </a>
         }
     </div>
 
-    @if (!Model.Catalog.Products.Any())
-    {
-        <div class="text-center py-5">
-            <p class="text-muted fs-5">No hi ha productes disponibles en aquesta categoria.</p>
-        </div>
-    }
-    else
-    {
-        <div class="row g-4">
-            @foreach (var p in Model.Catalog.Products)
-            {
-                var name = p.ProductTranslations?.FirstOrDefault()?.Name ?? p.Code;
-                var description = p.ProductTranslations?.FirstOrDefault()?.Description ?? "";
-                var priceUnit = p.PriceUnit?.Code ?? "";
-                var categoryName = p.Category?.CategoriesTranslations?.FirstOrDefault()?.Name;
+    <form method="get" id="catalogo" class="row g-2 mb-4 catalog-filters"
+          data-results-url="@Url.Page("./Index", "Results")"
+          data-suggest-url="@Url.Page("./Index", "Suggest")">
 
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="product-card h-100">
-                        <div class="product-img-wrapper">
-                            <img src="@(p.ImgUrl ?? "/images/no-image.png")" class="product-img" alt="@name" />
-                            @if (categoryName != null)
-                            {
-                                <span class="product-badge">@categoryName</span>
-                            }
-                        </div>
-                        <div class="product-body">
-                            <h5 class="product-title">@name</h5>
-                            @if (!string.IsNullOrWhiteSpace(description))
-                            {
-                                <p class="product-description">@description</p>
-                            }
-                            <div class="product-price">
-                                @if (p.CurrentPrice.HasValue)
-                                {
-                                    <span class="price-value">@p.CurrentPrice.Value.ToString("0.00")€</span>
-                                    @if (!string.IsNullOrEmpty(priceUnit))
-                                    {
-                                        <span class="price-unit">/@priceUnit</span>
-                                    }
-                                }
-                                else
-                                {
-                                    <span class="text-muted">Preu a consultar</span>
-                                }
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-12 col-md-6">
+            <div class="suggest-wrap">
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                    <input name="Q" value="@Model.Q" class="form-control" autocomplete="off"
+                           placeholder="Cerca un producte..." />
                 </div>
-            }
+                <div id="suggestBox" class="list-group suggest-box d-none"></div>
+            </div>
         </div>
-    }
+
+        <div class="col-7 col-md-3">
+            <select name="Sort" class="form-select">
+                <option value="" selected="@(string.IsNullOrEmpty(Model.Sort))">Nom (A-Z)</option>
+                <option value="price_asc" selected="@(Model.Sort == "price_asc")">Preu: de menys a més</option>
+                <option value="price_desc" selected="@(Model.Sort == "price_desc")">Preu: de més a menys</option>
+            </select>
+        </div>
+
+        <div class="col-5 col-md-3 d-flex gap-2">
+            <button class="btn btn-custom flex-grow-1">Cercar</button>
+            <button type="button" id="clearBtn" title="Neteja"
+                    class="btn btn-outline-secondary @(string.IsNullOrWhiteSpace(Model.Q) && string.IsNullOrEmpty(Model.Sort) ? "d-none" : "")">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+    </form>
+
+    <div id="results">
+        <partial name="_ProductResults" model="Model" />
+    </div>
 
 </section>
 
@@ -173,4 +156,290 @@
         font-weight: 400;
         color: #6c757d;
     }
+
+    .product-img-wrapper {
+        background: #fff;
+    }
+
+    .product-img-placeholder {
+        object-fit: contain; /* el logo no se recorta */
+        padding: 28px;
+        opacity: .85;
+    }
+    @@media (max-width: 767.98px) {
+        .catalog-hero {
+            padding: 110px 0 40px !important;
+        }
+
+        .category-pills {
+            flex-wrap: nowrap !important;
+            overflow-x: auto;
+            justify-content: flex-start !important;
+            padding-bottom: 6px;
+            margin-bottom: 1.5rem !important;
+        }
+
+            .category-pills .btn-custom-outline {
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+    }
+
+    @@media (max-width: 575.98px) {
+        .product-body {
+            padding: 10px;
+        }
+
+        .product-title {
+            font-size: .95rem;
+        }
+
+        .price-value {
+            font-size: 1rem;
+        }
+
+        .product-img-placeholder {
+            padding: 14px;
+        }
+    }
+
+    .suggest-wrap {
+        position: relative;
+    }
+
+    .suggest-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1050;
+        max-height: 300px;
+        overflow-y: auto;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+
+        .suggest-box .list-group-item.active {
+            background-color: #3E2723;
+            border-color: #3E2723;
+        }
+
+    #results {
+        transition: opacity .15s ease;
+    }
+
+        #results.is-loading {
+            opacity: .45;
+            pointer-events: none;
+        }
+
+    .offer-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #D32F2F;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    }
+
+    .price-old {
+        text-decoration: line-through;
+        color: #8a8a8a;
+        font-weight: 400;
+        font-size: .85em;
+        margin-right: 6px;
+    }
+
+    .price-offer {
+        color: #D32F2F;
+    }
 </style>
+@section Scripts {
+    <script>
+        (function () {
+            const initial = @Json.Serialize(new
+            {
+                    categoryId = Model.CategoryId,
+                    q = Model.Q ?? "",
+                    sort = Model.Sort ?? "",
+                    page = Model.PageNumber
+            });
+
+        const form = document.getElementById('catalogo');
+        const input = form.querySelector('input[name="Q"]');
+        const sortSel = form.querySelector('select[name="Sort"]');
+        const clearBtn = document.getElementById('clearBtn');
+        const results = document.getElementById('results');
+        const pillsBox = document.getElementById('categorias');
+        const box = document.getElementById('suggestBox');
+        const resultsUrl = form.dataset.resultsUrl;
+        const suggestUrl = form.dataset.suggestUrl;
+        const urlCulture = new URLSearchParams(location.search).get('culture'); // solo para pruebas con ?culture=ca
+
+            const state = {
+                categoryId: initial.categoryId == null ? '' : String(initial.categoryId),
+                q: initial.q,
+                sort: initial.sort,
+                page: initial.page
+            };
+
+            let controller = null;
+
+            // ---------- Resultados sin cambiar la URL ----------
+            function buildUrl(base) {
+                const p = new URLSearchParams();
+                if (state.categoryId) p.set('categoryId', state.categoryId);
+                if (state.q) p.set('q', state.q);
+                if (state.sort) p.set('sort', state.sort);
+                if (state.page > 1) p.set('pageNumber', state.page);
+                if (urlCulture) p.set('culture', urlCulture);
+                const s = p.toString();
+                return s ? base + '&' + s : base;
+            }
+
+            function updateUi() {
+                pillsBox.querySelectorAll('[data-category]').forEach(a =>
+                    a.classList.toggle('active', a.dataset.category === state.categoryId));
+                clearBtn.classList.toggle('d-none', !state.q && !state.sort);
+            }
+
+            async function load(scroll) {
+                if (controller) controller.abort();
+                const c = new AbortController();
+                controller = c;
+                results.classList.add('is-loading');
+
+                try {
+                    const res = await fetch(buildUrl(resultsUrl), { signal: c.signal });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    results.innerHTML = await res.text();
+                    updateUi();
+                    if (scroll) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } catch (e) {
+                    if (e.name !== 'AbortError')
+                        results.innerHTML = '<p class="text-center text-danger py-5">No s\'ha pogut carregar el catàleg. Torna-ho a provar.</p>';
+                } finally {
+                    if (controller === c) results.classList.remove('is-loading');
+                }
+            }
+
+            // Buscar / cambiar orden
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                state.q = input.value.trim();
+                state.sort = sortSel.value;
+                state.page = 1;
+                closeSuggest();
+                load(false);
+            });
+            sortSel.addEventListener('change', () => form.requestSubmit());
+
+            // Limpiar búsqueda y orden
+            clearBtn.addEventListener('click', () => {
+                input.value = '';
+                sortSel.value = '';
+                state.q = ''; state.sort = ''; state.page = 1;
+                closeSuggest();
+                load(false);
+            });
+
+            // Categorías
+            pillsBox.addEventListener('click', e => {
+                const a = e.target.closest('[data-category]');
+                if (!a) return;
+                e.preventDefault();
+                state.categoryId = a.dataset.category;
+                state.page = 1;
+                load(false);
+            });
+
+            // Paginación y "ver todo" (dentro de los resultados)
+            results.addEventListener('click', e => {
+                const link = e.target.closest('a.page-link');
+                if (link) {
+                    e.preventDefault();
+                    const n = parseInt(new URL(link.href, location.origin).searchParams.get('PageNumber'), 10);
+                    if (n) { state.page = n; load(true); }
+                    return;
+                }
+                if (e.target.closest('[data-reset]')) {
+                    input.value = ''; sortSel.value = '';
+                    state.categoryId = ''; state.q = ''; state.sort = ''; state.page = 1;
+                    load(false);
+                }
+            });
+
+            // ---------- Sugerencias al escribir ----------
+            let timer = null, sController = null, items = [], active = -1;
+
+            function closeSuggest() {
+                box.innerHTML = '';
+                box.classList.add('d-none');
+                items = [];
+                active = -1;
+            }
+
+            function choose(name) {
+                input.value = name;
+                closeSuggest();
+                form.requestSubmit();
+            }
+
+            function renderSuggest(list) {
+                if (!list.length) return closeSuggest();
+                items = list;
+                active = -1;
+                box.innerHTML = '';
+                list.forEach(name => {
+                    const b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'list-group-item list-group-item-action';
+                    b.textContent = name;
+                    b.addEventListener('mousedown', e => { e.preventDefault(); choose(name); });
+                    box.appendChild(b);
+                });
+                box.classList.remove('d-none');
+            }
+
+            input.addEventListener('input', () => {
+                clearTimeout(timer);
+                const q = input.value.trim();
+                if (q.length < 2) return closeSuggest();
+
+                timer = setTimeout(async () => {
+                    if (sController) sController.abort();
+                    sController = new AbortController();
+
+                    let url = suggestUrl + '&q=' + encodeURIComponent(q);
+                    if (state.categoryId) url += '&categoryId=' + encodeURIComponent(state.categoryId);
+                    if (urlCulture) url += '&culture=' + encodeURIComponent(urlCulture);
+
+                    try {
+                        const res = await fetch(url, { signal: sController.signal });
+                        if (res.ok) renderSuggest(await res.json());
+                    } catch (e) { /* cancelada o sin red */ }
+                }, 250);
+            });
+
+            input.addEventListener('keydown', e => {
+                const btns = box.querySelectorAll('button');
+                if (!btns.length) return;
+
+                if (e.key === 'ArrowDown') { e.preventDefault(); active = (active + 1) % btns.length; }
+                else if (e.key === 'ArrowUp') { e.preventDefault(); active = (active - 1 + btns.length) % btns.length; }
+                else if (e.key === 'Enter' && active >= 0) { e.preventDefault(); choose(items[active]); return; }
+                else if (e.key === 'Escape') { closeSuggest(); return; }
+                else return;
+
+                btns.forEach((b, i) => b.classList.toggle('active', i === active));
+            });
+
+            input.addEventListener('blur', closeSuggest);
+        })();
+    </script>
+}
+}

@@ -6,6 +6,7 @@ wwwroot\images\embutidos.png
 wwwroot\images\hero.png
 wwwroot\images\jamones.png
 wwwroot\images\logo.png
+wwwroot\images\no-image.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

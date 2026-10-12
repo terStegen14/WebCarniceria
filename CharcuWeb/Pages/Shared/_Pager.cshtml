@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Routing
+@model TradicioCarnica.ViewModels.PagerViewModel
+
+@if (Model.TotalPages > 1)
+{
+    var pages = Enumerable.Range(1, Model.TotalPages)
+        .Where(i => i == 1 || i == Model.TotalPages || Math.Abs(i - Model.Current) <= 2)
+        .ToList();
+    var prev = 0;
+
+    <nav>
+        <ul class="pagination flex-wrap mb-0">
+            @foreach (var i in pages)
+            {
+                if (prev != 0 && i - prev > 1)
+                {
+                    <li class="page-item disabled"><span class="page-link">…</span></li>
+                }
+
+                var route = new RouteValueDictionary(Model.Query) { ["PageNumber"] = i };
+                <li class="page-item @(i == Model.Current ? "active" : "")">
+                    <a class="page-link" href="@Url.Page(null, null, route, null, null, Model.Fragment)">@i</a>
+                </li>
+                prev = i;
+            }
+        </ul>
+    </nav>
+}

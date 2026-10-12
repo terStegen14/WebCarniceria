@@ -31,64 +31,62 @@
     </section>
 
     <section id="categorias" class="py-5">
+        <div class="container">
 
-        <div class="container text-center">
+            <div class="text-center mb-5">
+                <span class="section-kicker">El nostre producte</span>
+                <h2 class="section-title">Les nostres categories</h2>
+                <p class="section-lead">Qualitat superior en cada producte. Treballem amb proveïdors locals de confiança.</p>
+            </div>
 
-            <h2 class="mb-5" style="font-size: 64px; font-weight: 500">Les Nostres Categories</h2>
-            <p class="lead" style="font-family: 32px">Qualitat superior en cada producte. Treballem amb proveïdors locals de confiança.</p>
             <div class="row g-4">
 
                 <div class="col-md-6">
-                    <div class="custom-card">
-                        <div class="card-img-wrapper">
-                            <img src="/images/carnes.png" class="custom-card-img">
-                        </div>
-                        <div class="card-info">
-                            <h5>Carns Fresques</h5>
+                    <a asp-page="/Catalog/Index" class="cat-tile">
+                        <img src="/images/carnes.png" alt="Carns fresques" />
+                        <div class="cat-overlay">
+                            <h3>Carns Fresques</h3>
                             <p>Vadella, porc i xai de primera qualitat. Seleccionem les millors peces per garantir sabor i tendresa.</p>
+                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="custom-card">
-                        <div class="card-img-wrapper">
-                            <img src="/images/embutidos.png" class="custom-card-img">
-                        </div>
-                        <div class="card-info">
-                            <h5>Embotits Artesans</h5>
+                    <a asp-page="/Catalog/Index" class="cat-tile">
+                        <img src="/images/embutidos.png" alt="Embotits artesans" />
+                        <div class="cat-overlay">
+                            <h3>Embotits Artesans</h3>
                             <p>Xoriço, llonganissa, botifarra i més. Elaborats seguint receptes tradicionals amb ingredients naturals.</p>
+                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="custom-card">
-                        <div class="card-img-wrapper">
-                            <img src="/images/jamones.png" class="custom-card-img">
+                    <a asp-page="/Catalog/Index" class="cat-tile">
+                        <img src="/images/jamones.png" alt="Xarcuteria selecta" />
+                        <div class="cat-overlay">
+                            <h3>Xarcuteria Selecta</h3>
+                            <p>Pernils ibèrics, llom embotit, cecina i una selecció de formatges de diferents regions.</p>
+                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
                         </div>
-                        <div class="card-info">
-                            <h5>Xarcuteria Selecta</h5>
-                            <p>Pernils ibèrics, lomm embotit, cecina i una selecció de formatges de diferents regions.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="custom-card">
-                        <div class="card-img-wrapper">
-                            <img src="/images/embutidos.png" class="custom-card-img">
+                    <a asp-page="/Catalog/Index" class="cat-tile">
+                        <img src="/images/embutidos.png" alt="Productes elaborats" />
+                        <div class="cat-overlay">
+                            <h3>Productes Elaborats</h3>
+                            <p>Hamburgueses casolanes, mandonguilles, pinxos moruns i d'altres preparats llestos per cuinar.</p>
+                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
                         </div>
-                        <div class="card-info">
-                            <h5>Productes Elaborats</h5>
-                            <p>Hamburgueses casolanes, mandonguilles, pinxos moruns i d’altres preparats llestos per cuinar.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
+
             </div>
-
         </div>
-
     </section>
 
     <section id="nosotros" class="container py-5">

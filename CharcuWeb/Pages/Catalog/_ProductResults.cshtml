@@ -1,0 +1,94 @@
+﻿@model TradicioCarnica.Pages.Catalog.IndexModel
+
+@{
+    var pager = new TradicioCarnica.ViewModels.PagerViewModel
+    {
+        Current = Model.PageNumber,
+        TotalPages = Model.TotalPages,
+        Query = new Dictionary<string, object?>()
+    };
+}
+
+<p class="text-muted small mb-3">@Model.TotalCount producte(s)</p>
+
+@if (!Model.Catalog.Products.Any())
+{
+    <div class="text-center py-5">
+        <p class="text-muted fs-5">No hem trobat cap producte amb aquests filtres.</p>
+        <button type="button" class="btn btn-custom" data-reset>Veure tot el catàleg</button>
+    </div>
+}
+else
+{
+    <div class="row g-3 g-md-4">
+        @foreach (var p in Model.Catalog.Products)
+        {
+            var name = p.ProductTranslations?.FirstOrDefault()?.Name ?? p.Code;
+            var description = p.ProductTranslations?.FirstOrDefault()?.Description ?? "";
+            var priceUnit = p.PriceUnit?.Code ?? "";
+            var categoryName = p.Category?.CategoriesTranslations?.FirstOrDefault()?.Name;
+            var hasImg = !string.IsNullOrWhiteSpace(p.ImgUrl);
+            var offer = Model.Offers.GetValueOrDefault(p.Id);
+
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="product-card h-100">
+                    <div class="product-img-wrapper">
+                        <img src="@(hasImg? p.ImgUrl: "/images/logo.png")"
+                             class="product-img @(hasImg ? "" : "product-img-placeholder")"
+                             alt="@name" loading="lazy" />
+                        @if (categoryName != null)
+                        {
+                            <span class="product-badge">@categoryName</span>
+                        }
+                        @if (offer != null)
+                        {
+                            <span class="offer-badge">@offer.Badge</span>
+                        }
+                    </div>
+                    <div class="product-body">
+                        <h5 class="product-title">@name</h5>
+                        @if (!string.IsNullOrWhiteSpace(description))
+                        {
+                            <p class="product-description">@description</p>
+                        }
+                        <div class="product-price">
+                            @if (p.CurrentPrice.HasValue)
+                            {
+                                if (offer?.NewPrice != null)
+                                {
+                                    <span class="price-old">@p.CurrentPrice.Value.ToString("0.00")€</span>
+                                    <span class="price-value price-offer">@offer.NewPrice.Value.ToString("0.00")€</span>
+                                }
+                                else
+                                {
+                                    <span class="price-value">@p.CurrentPrice.Value.ToString("0.00")€</span>
+                                }
+
+                                if (!string.IsNullOrEmpty(priceUnit))
+                                {
+                                    <span class="price-unit">/@priceUnit</span>
+                                }
+                            }
+                            else if (offer?.NewPrice != null)
+                            {
+                                <span class="price-value price-offer">@offer.NewPrice.Value.ToString("0.00")€</span>
+                                if (!string.IsNullOrEmpty(priceUnit))
+                                {
+                                    <span class="price-unit">/@priceUnit</span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="text-muted">Preu a consultar</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="d-flex justify-content-center mt-5">
+        <partial name="_Pager" model="pager" />
+    </div>
+}

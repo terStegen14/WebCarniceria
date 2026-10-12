@@ -17,9 +17,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
 body, button, input, textarea, select {
     font-family: 'Montserrat', sans-serif;
 }
@@ -124,18 +121,54 @@ table td a.link-no-style:hover {
     padding: 1.5rem;
 }
 
+.sidebar-backdrop {
+    display: none;
+}
+
+.admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: #fff;
+    padding: .5rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
 @media (max-width: 767.98px) {
     .sidebar {
         transform: translateX(-100%);
         transition: transform .3s ease;
+        width: min(260px, 80vw);
+        overflow-y: auto; /* en móvil sí puede hacer scroll vertical */
     }
 
         .sidebar.show {
             transform: translateX(0);
         }
 
+    .sidebar-backdrop.show {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.5);
+        z-index: 999;
+    }
+
     .admin-main {
         margin-left: 0;
+        padding: 1rem;
     }
+
+        /* Tablas anchas: scroll horizontal dentro de la propia tabla */
+        .admin-main .table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .admin-main h2 {
+            font-size: 1.4rem;
+        }
 }
 

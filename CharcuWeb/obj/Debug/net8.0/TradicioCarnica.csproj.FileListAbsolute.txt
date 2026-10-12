@@ -583,7 +583,6 @@ C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\staticwebassets.build.json
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\staticwebassets.development.json
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\Tradicio.55683264.Up2Date
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\refint\TradicioCarnica.dll
@@ -591,3 +590,4 @@ C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.pdb
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.genruntimeconfig.cache
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\ref\TradicioCarnica.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.sourcelink.json
+C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

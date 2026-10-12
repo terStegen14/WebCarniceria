@@ -1,15 +1,22 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-window.addEventListener("scroll", function () {
-
+﻿(function () {
     const navbar = document.getElementById("mainNavbar");
+    if (!navbar) return;
 
-    if (window.scrollY > window.innerHeight - 100) {
+    // Páginas con cabecera grande (home y catálogo)
+    const hero = document.querySelector(".hero, .catalog-hero");
+
+    // Sin cabecera grande: barra sólida siempre
+    if (!hero) {
         navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
+        return;
     }
 
-});
+    function update() {
+        const limit = hero.offsetHeight - navbar.offsetHeight;
+        navbar.classList.toggle("scrolled", window.scrollY > Math.max(limit, 10));
+    }
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+})();
