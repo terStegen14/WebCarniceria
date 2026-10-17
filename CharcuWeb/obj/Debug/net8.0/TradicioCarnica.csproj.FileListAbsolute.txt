@@ -304,7 +304,6 @@ C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\TradicioCarnica.runtimeconf
 C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\TradicioCarnica.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\TradicioCarnica.pdb
 C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\ca\TradicioCarnica.resources.dll
-C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\es\TradicioCarnica.resources.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\Azure.Core.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\Azure.Identity.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\Humanizer.dll
@@ -561,7 +560,6 @@ C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.csproj.Asse
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\rpswa.dswa.cache.json
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.Resources.Resource.resources
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.Resources.Resource.ca.resources
-C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.Resources.Resource.es.resources
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.csproj.GenerateResource.cache
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.GeneratedMSBuildEditorConfig.editorconfig
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.AssemblyInfoInputs.cache
@@ -572,7 +570,6 @@ C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.MvcApplicat
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.RazorAssemblyInfo.cache
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.RazorAssemblyInfo.cs
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\ca\TradicioCarnica.resources.dll
-C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\es\TradicioCarnica.resources.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -591,3 +588,6 @@ C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.genruntimec
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\ref\TradicioCarnica.dll
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.sourcelink.json
 C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Trabajos\WebCarniceria\CharcuWeb\bin\Debug\net8.0\es\TradicioCarnica.resources.dll
+C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\TradicioCarnica.Resources.Resource.es.resources
+C:\Trabajos\WebCarniceria\CharcuWeb\obj\Debug\net8.0\es\TradicioCarnica.resources.dll

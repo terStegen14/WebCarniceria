@@ -7,6 +7,7 @@ wwwroot\images\hero.png
 wwwroot\images\jamones.png
 wwwroot\images\logo.png
 wwwroot\images\no-image.png
+wwwroot\images\products\5c3a334d-4a5f-4153-9891-038d6268f595.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

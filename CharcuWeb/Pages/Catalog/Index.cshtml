@@ -1,14 +1,14 @@
 ﻿@page
 @model TradicioCarnica.Pages.Catalog.IndexModel
 @{
-    ViewData["Title"] = "Catàleg";
+    ViewData["Title"] = LangResource["NavbarCatalog"];
 }
 
 <section class="catalog-hero d-flex align-items-center text-center text-white"
          style="position:relative; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/hero.png'); background-size:cover; background-position:center; padding: 120px 0 60px;">
     <div class="container">
-        <h1 class="fw-bold" style="font-size: clamp(2rem, 7vw, 3.5rem);">Catàleg de Productes</h1>
-        <p class="lead">Qualitat i tradició en cada tall des de 1999</p>
+        <h1 class="fw-bold" style="font-size: clamp(2rem, 7vw, 3.5rem);">@LangResource["CatalogTitle"]</h1>
+        <p class="lead">@LangResource["HeroTagline"]</p>
     </div>
 </section>
 
@@ -17,11 +17,11 @@
     <div class="d-flex flex-wrap gap-2 justify-content-center mb-5 category-pills" id="categorias">
         <a asp-page="./Index" data-category=""
            class="btn btn-custom-outline @(Model.Catalog.SelectedCategoryId == null ? "active" : "")">
-            Tots
+            @LangResource["CatalogAll"]
         </a>
         @foreach (var c in Model.Catalog.Categories)
         {
-            var name = c.CategoriesTranslations?.FirstOrDefault()?.Name ?? "Categoria";
+            var name = c.CategoriesTranslations?.FirstOrDefault()?.Name ?? LangResource["CatalogCategoryFallback"].Value;
             <a asp-page="./Index" asp-route-categoryId="@c.Id" data-category="@c.Id"
                class="btn btn-custom-outline @(Model.Catalog.SelectedCategoryId == c.Id ? "active" : "")">
                 @name
@@ -31,14 +31,15 @@
 
     <form method="get" id="catalogo" class="row g-2 mb-4 catalog-filters"
           data-results-url="@Url.Page("./Index", "Results")"
-          data-suggest-url="@Url.Page("./Index", "Suggest")">
+          data-suggest-url="@Url.Page("./Index", "Suggest")"
+          data-error="@LangResource["CatalogLoadError"]">
 
         <div class="col-12 col-md-6">
             <div class="suggest-wrap">
                 <div class="input-group">
                     <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
                     <input name="Q" value="@Model.Q" class="form-control" autocomplete="off"
-                           placeholder="Cerca un producte..." />
+                           placeholder="@LangResource["CatalogSearchPlaceholder"]" />
                 </div>
                 <div id="suggestBox" class="list-group suggest-box d-none"></div>
             </div>
@@ -46,15 +47,15 @@
 
         <div class="col-7 col-md-3">
             <select name="Sort" class="form-select">
-                <option value="" selected="@(string.IsNullOrEmpty(Model.Sort))">Nom (A-Z)</option>
-                <option value="price_asc" selected="@(Model.Sort == "price_asc")">Preu: de menys a més</option>
-                <option value="price_desc" selected="@(Model.Sort == "price_desc")">Preu: de més a menys</option>
+                <option value="" selected="@(string.IsNullOrEmpty(Model.Sort))">@LangResource["CatalogSortName"]</option>
+                <option value="price_asc" selected="@(Model.Sort == "price_asc")">@LangResource["CatalogSortPriceAsc"]</option>
+                <option value="price_desc" selected="@(Model.Sort == "price_desc")">@LangResource["CatalogSortPriceDesc"]</option>
             </select>
         </div>
 
         <div class="col-5 col-md-3 d-flex gap-2">
-            <button class="btn btn-custom flex-grow-1">Cercar</button>
-            <button type="button" id="clearBtn" title="Neteja"
+            <button class="btn btn-custom flex-grow-1">@LangResource["CatalogSearchButton"]</button>
+            <button type="button" id="clearBtn" title="@LangResource["CatalogClear"]"
                     class="btn btn-outline-secondary @(string.IsNullOrWhiteSpace(Model.Q) && string.IsNullOrEmpty(Model.Sort) ? "d-none" : "")">
                 <i class="bi bi-x-lg"></i>
             </button>
@@ -321,7 +322,10 @@
                     if (scroll) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } catch (e) {
                     if (e.name !== 'AbortError')
-                        results.innerHTML = '<p class="text-center text-danger py-5">No s\'ha pogut carregar el catàleg. Torna-ho a provar.</p>';
+                        const p = document.createElement('p');
+                        p.className = 'text-center text-danger py-5';
+                        p.textContent = form.dataset.error;
+                        results.replaceChildren(p);
                 } finally {
                     if (controller === c) results.classList.remove('is-loading');
                 }
@@ -359,6 +363,14 @@
 
             // Paginación y "ver todo" (dentro de los resultados)
             results.addEventListener('click', e => {
+                const jump = e.target.closest('[data-category-jump]');
+                if (jump) {
+                    state.categoryId = jump.dataset.categoryJump;
+                    state.page = 1;
+                    load(false);
+                    return;
+                }
+
                 const link = e.target.closest('a.page-link');
                 if (link) {
                     e.preventDefault();

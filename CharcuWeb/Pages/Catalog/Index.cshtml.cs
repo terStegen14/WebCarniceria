@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using TradicioCarnica.Data;
 using TradicioCarnica.ViewModels;
 using TradicioCarnica.Models;
+using Microsoft.Extensions.Localization;
+using TradicioCarnica.Resources;
 
 namespace TradicioCarnica.Pages.Catalog
 {
@@ -12,12 +14,19 @@ namespace TradicioCarnica.Pages.Catalog
         private const int PageSize = 24;
         private readonly ApplicationDbContext _context;
 
-        public IndexModel(ApplicationDbContext context) => _context = context;
+        private readonly IStringLocalizer<Resource> _L;
+
+        public IndexModel(ApplicationDbContext context, IStringLocalizer<Resource> localizer)
+        {
+            _context = context;
+            _L = localizer;
+        }
 
         public CatalogViewModel Catalog { get; set; } = new();
         public int TotalCount { get; set; }
         public int TotalPages { get; set; } = 1;
         public Dictionary<long, OfferInfo> Offers { get; set; } = new();
+        public List<CategoryMatch> OtherMatches { get; set; } = new();
         [BindProperty(SupportsGet = true)] public long? CategoryId { get; set; }
         [BindProperty(SupportsGet = true)] public string? Q { get; set; }
         [BindProperty(SupportsGet = true)] public string? Sort { get; set; }
@@ -40,23 +49,49 @@ namespace TradicioCarnica.Pages.Catalog
                 .Include(c => c.CategoriesTranslations.Where(t => t.LanguageId == lang))
                 .ToListAsync();
 
-            var query = _context.TProducts.Where(p => p.Active);
+            var baseQuery = _context.TProducts.Where(p => p.Active);
 
-            if (CategoryId.HasValue)
-                query = query.Where(p => p.CategoryId == CategoryId);
-
-            if (!string.IsNullOrWhiteSpace(Q))
+            var hasSearch = !string.IsNullOrWhiteSpace(Q);
+            if (hasSearch)
             {
-                var term = Q.Trim();
+                var term = Q!.Trim();
                 if (term.Length > 50) term = term[..50];
 
-                query = query.Where(p =>
+                baseQuery = baseQuery.Where(p =>
                     p.Code.Contains(term) ||
                     p.ProductTranslations!.Any(t =>
                         EF.Functions.Collate(t.Name, "SQL_Latin1_General_CP1_CI_AI").Contains(term)));
             }
 
+            // Con categoría seleccionada se filtra además por ella
+            var query = CategoryId.HasValue
+                ? baseQuery.Where(p => p.CategoryId == CategoryId)
+                : baseQuery;
+
             TotalCount = await query.CountAsync();
+
+            // Coincidencias en OTRAS categorías (solo si se busca dentro de una categoría)
+            OtherMatches = new();
+            if (hasSearch && CategoryId.HasValue)
+            {
+                var groups = await baseQuery
+                    .Where(p => p.CategoryId != CategoryId)
+                    .GroupBy(p => p.CategoryId)
+                    .Select(g => new { Id = g.Key, Count = g.Count() })
+                    .ToListAsync();
+
+                OtherMatches = groups
+                    .Select(g => new CategoryMatch
+                    {
+                        CategoryId = g.Id,
+                        Count = g.Count,
+                        Name = categories.FirstOrDefault(c => c.Id == g.Id)
+                                   ?.CategoriesTranslations?.FirstOrDefault()?.Name ?? "Categoria"
+                    })
+                    .OrderByDescending(m => m.Count)
+                    .ToList();
+            }
+
             TotalPages = Math.Max(1, (int)Math.Ceiling(TotalCount / (double)PageSize));
             PageNumber = Math.Clamp(PageNumber, 1, TotalPages);
 
@@ -111,7 +146,7 @@ namespace TradicioCarnica.Pages.Catalog
                         OfferInfo? info = code switch
                         {
                             "FIXED_PRICE" when o.Price > 0 =>
-                                new OfferInfo { NewPrice = o.Price, Badge = "Oferta" },
+                                new OfferInfo { NewPrice = o.Price, Badge = _L["OfferBadge"].Value },
 
                             "PERCENT" when basePrice.HasValue && o.DiscountPercent > 0 =>
                                 new OfferInfo
@@ -121,7 +156,7 @@ namespace TradicioCarnica.Pages.Catalog
                                 },
 
                             "BUY_X_GET_Y" when o.BuyQty > 0 && o.GetQty > 0 =>
-                                new OfferInfo { Badge = $"{o.BuyQty:0.##}+{o.GetQty:0.##} gratis" },
+                                new OfferInfo { Badge = _L["OfferBuyGet", o.BuyQty.ToString("0.##"), o.GetQty.ToString("0.##")].Value },
 
                             _ => null
                         };

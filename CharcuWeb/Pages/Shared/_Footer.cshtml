@@ -1,30 +1,114 @@
-﻿<footer class="bg-dark text-white mt-5">
+﻿<footer class="footer-custom mt-5">
+    <div class="container py-5">
+        <div class="row g-4">
 
-    <div class="container py-4">
+            <!-- Marca -->
+            <div class="col-lg-4 col-md-6">
+                <h4 class="footer-brand mb-3">
+                    Tradició <span>càrnica</span>
+                </h4>
 
-        <div class="row">
+                <p class="footer-description">
+                    @LangResource["FooterTagline"]
+                </p>
 
-            <div class="col-md-4">
-                <h5>Tradició càrnica</h5>
-                <p>Carnisseria de confiança des de 1999</p>
+                <div class="footer-divider"></div>
+
+                <p class="footer-small">
+                    @LangResource["FooterSmall"]
+                </p>
             </div>
 
-            <div class="col-md-4">
-                <h6>Horari</h6>
-                <p class="mb-1">Dimarts - Dimecres: 8:00 - 14:30</p>
-                <p class="mb-1">Dijous: 8:00 - 20:00</p>
-                <p class="mb-1">Divendres: 7:00 - 20:00</p>
-                <p>Dissabte: 7:00 - 14:30</p>
+            <!-- Horarios -->
+            <div class="col-lg-4 col-md-6">
+                <h5 class="footer-title mb-4">
+                    <i class="bi bi-clock-fill me-2"></i>
+                    @LangResource["Schedule"]
+                </h5>
+
+                <div class="footer-schedule">
+                    <p class="footer-closed">
+                        <span>@LangResource["DaySun"]</span>
+                        <span>@LangResource["Closed"]</span>
+                    </p>
+
+                    <p class="footer-closed">
+                        <span>@LangResource["DayMon"]</span>
+                        <span>@LangResource["Closed"]</span>
+                    </p>
+
+                    <p>
+                        <span>@LangResource["DayTue"]</span>
+                        <span>8:00 - 14:30</span>
+                    </p>
+
+                    <p>
+                        <span>@LangResource["DayWed"]</span>
+                        <span>8:00 - 14:30</span>
+                    </p>
+
+                    <p>
+                        <span>@LangResource["DayThu"]</span>
+                        <span>8:00 - 14:30 / 16:00 - 20:00</span>
+                    </p>
+
+                    <p>
+                        <span>@LangResource["DayFri"]</span>
+                        <span>7:00 - 20:00</span>
+                    </p>
+
+                    <p>
+                        <span>@LangResource["DaySat"]</span>
+                        <span>7:00 - 14:30</span>
+                    </p>
+                </div>
             </div>
 
-            <div class="col-md-4">
-                <h6>Contacte</h6>
-                <p>Mercat de Montserrat</p>
-                <p>933 54 87 20</p>
+            <!-- Contacto -->
+            <div class="col-lg-4 col-md-12">
+                <h5 class="footer-title mb-4">
+                    <i class="bi bi-geo-alt-fill me-2"></i>
+                    @LangResource["NavbarContact"]
+                </h5>
+
+                <div class="footer-contact-item">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <div>
+                        <p class="footer-label">@LangResource["Address"]</p>
+                        <p class="mb-0">
+                            @LangResource["StallAddress"]
+                        </p>
+                        <p class="mb-0">Via Favència, 247</p>
+                    </div>
+                </div>
+
+                <div class="footer-contact-item">
+                    <i class="bi bi-telephone-fill"></i>
+                    <div>
+                        <p class="footer-label">@LangResource["Phone"]</p>
+                        <a href="tel:+34933548720">933 54 87 20</a>
+                    </div>
+                </div>
+
+                <div class="footer-contact-item">
+                    <i class="bi bi-envelope-fill"></i>
+                    <div>
+                        <p class="footer-label">@LangResource["Email"]</p>
+                        <a href="mailto:charcusyv@gmail.com">
+                            charcusyv@gmail.com
+                        </a>
+                    </div>
+                </div>
             </div>
 
         </div>
 
+        <!-- Copyright -->
+        <div class="footer-bottom mt-5 pt-3">
+            <p class="mb-0">
+                &copy; @DateTime.Now.Year Tradició càrnica.
+                @LangResource["AllRightsReserved"]
+            </p>
+        </div>
     </div>
-
 </footer>

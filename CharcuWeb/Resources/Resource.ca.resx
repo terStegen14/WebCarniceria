@@ -117,6 +117,165 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BadgeYears" xml:space="preserve">
+    <value>Anys servint a la comunitat</value>
+  </data>
+  <data name="CatalogAll" xml:space="preserve">
+    <value>Tots</value>
+  </data>
+  <data name="CatalogAlsoFound" xml:space="preserve">
+    <value>També hem trobat «{0}» en:</value>
+  </data>
+  <data name="CatalogCategoryFallback" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="CatalogClear" xml:space="preserve">
+    <value>Neteja</value>
+  </data>
+  <data name="CatalogCount" xml:space="preserve">
+    <value>{0} producte(s)</value>
+  </data>
+  <data name="CatalogLoadError" xml:space="preserve">
+    <value>No s'ha pogut carregar el catàleg. Torna-ho a provar.</value>
+  </data>
+  <data name="CatalogNoResults" xml:space="preserve">
+    <value>No hem trobat cap producte amb aquests filtres.</value>
+  </data>
+  <data name="CatalogNotInCategory" xml:space="preserve">
+    <value>No hem trobat «{0}» en aquesta categoria.</value>
+  </data>
+  <data name="CatalogPriceOnRequest" xml:space="preserve">
+    <value>Preu a consultar</value>
+  </data>
+  <data name="CatalogSearchButton" xml:space="preserve">
+    <value>Cercar</value>
+  </data>
+  <data name="CatalogSearchPlaceholder" xml:space="preserve">
+    <value>Cerca un producte...</value>
+  </data>
+  <data name="CatalogSortName" xml:space="preserve">
+    <value>Nom (A-Z)</value>
+  </data>
+  <data name="CatalogSortPriceAsc" xml:space="preserve">
+    <value>Preu: de menys a més</value>
+  </data>
+  <data name="CatalogSortPriceDesc" xml:space="preserve">
+    <value>Preu: de més a menys</value>
+  </data>
+  <data name="CatalogTitle" xml:space="preserve">
+    <value>Catàleg de Productes</value>
+  </data>
+  <data name="CatalogViewAll" xml:space="preserve">
+    <value>Veure tot el catàleg</value>
+  </data>
+  <data name="CatalogWholeCatalog" xml:space="preserve">
+    <value>Tot el catàleg ({0})</value>
+  </data>
+  <data name="CatDeliText" xml:space="preserve">
+    <value>Pernils ibèrics, llom embotit, cecina i una selecció de formatges de diferents regions.</value>
+  </data>
+  <data name="CatDeliTitle" xml:space="preserve">
+    <value>Xarcuteria Selecta</value>
+  </data>
+  <data name="CatFreshText" xml:space="preserve">
+    <value>Vadella, porc i xai de primera qualitat. Seleccionem les millors peces per garantir sabor i tendresa.</value>
+  </data>
+  <data name="CatFreshTitle" xml:space="preserve">
+    <value>Carns Fresques</value>
+  </data>
+  <data name="CatKicker" xml:space="preserve">
+    <value>El nostre producte</value>
+  </data>
+  <data name="CatLead" xml:space="preserve">
+    <value>Qualitat superior en cada producte. Treballem amb proveïdors locals de confiança.</value>
+  </data>
+  <data name="CatPreparedText" xml:space="preserve">
+    <value>Hamburgueses casolanes, mandonguilles, pinxos moruns i d'altres preparats llestos per cuinar.</value>
+  </data>
+  <data name="CatPreparedTitle" xml:space="preserve">
+    <value>Productes Elaborats</value>
+  </data>
+  <data name="CatSausagesText" xml:space="preserve">
+    <value>Xoriço, llonganissa, botifarra i més. Elaborats seguint receptes tradicionals amb ingredients naturals.</value>
+  </data>
+  <data name="CatSausagesTitle" xml:space="preserve">
+    <value>Embotits Artesans</value>
+  </data>
+  <data name="CatTitle" xml:space="preserve">
+    <value>Les nostres categories</value>
+  </data>
+  <data name="CatViewProducts" xml:space="preserve">
+    <value>Veure productes</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Tancat</value>
+  </data>
+  <data name="DayFri" xml:space="preserve">
+    <value>Divendres</value>
+  </data>
+  <data name="DayMon" xml:space="preserve">
+    <value>Dilluns</value>
+  </data>
+  <data name="DaySat" xml:space="preserve">
+    <value>Dissabte</value>
+  </data>
+  <data name="DaySun" xml:space="preserve">
+    <value>Diumenge</value>
+  </data>
+  <data name="DayThu" xml:space="preserve">
+    <value>Dijous</value>
+  </data>
+  <data name="DayTue" xml:space="preserve">
+    <value>Dimarts</value>
+  </data>
+  <data name="DayWed" xml:space="preserve">
+    <value>Dimecres</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ErrorBack" xml:space="preserve">
+    <value>Tornar a l'inici</value>
+  </data>
+  <data name="ErrorText" xml:space="preserve">
+    <value>No hem pogut processar la teva petició. Torna-ho a provar en uns instants.</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Ha ocorregut un error</value>
+  </data>
+  <data name="FeatureLocal" xml:space="preserve">
+    <value>Producte local</value>
+  </data>
+  <data name="FeatureService" xml:space="preserve">
+    <value>Atenció personalitzada</value>
+  </data>
+  <data name="FeatureYears" xml:space="preserve">
+    <value>Més de 25 anys</value>
+  </data>
+  <data name="FooterTagline" xml:space="preserve">
+    <value>Carnisseria de confiança des de 1999</value>
+  </data>
+  <data name="HeroButtonCatalog" xml:space="preserve">
+    <value>Veure Catàleg</value>
+  </data>
+  <data name="HeroButtonMore" xml:space="preserve">
+    <value>Descobreix més</value>
+  </data>
+  <data name="HeroTagline" xml:space="preserve">
+    <value>Qualitat i tradició en cada tall des de 1999</value>
+  </data>
+  <data name="HistoryP1" xml:space="preserve">
+    <value>Des de 1999, Sílvia i Víctor han servit a la comunitat del mercat amb dedicació i passió. El que va començar com un petit negoci de carns, avui és una carnisseria de referència coneguda per la seva qualitat excepcional i tracte proper.</value>
+  </data>
+  <data name="HistoryP2" xml:space="preserve">
+    <value>Ens enorgulleix mantenir viva la tradició del bon tall, seleccionant personalment cada peça i treballant només amb proveïdors que comparteixen els nostres valors de qualitat i sostenibilitat.</value>
+  </data>
+  <data name="HistoryTitle" xml:space="preserve">
+    <value>La Nostra Història</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Ubicació</value>
+  </data>
   <data name="NavbarCatalog" xml:space="preserve">
     <value>Catàleg</value>
   </data>
@@ -125,5 +284,35 @@
   </data>
   <data name="NavbarHome" xml:space="preserve">
     <value>Inici</value>
+  </data>
+  <data name="OfferBadge" xml:space="preserve">
+    <value>Oferta</value>
+  </data>
+  <data name="OfferBuyGet" xml:space="preserve">
+    <value>{0}+{1} gratis</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telèfon</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Horari</value>
+  </data>
+  <data name="StallAddress" xml:space="preserve">
+    <value>Mercat de Montserrat, Parada 10</value>
+  </data>
+  <data name="VisitLead" xml:space="preserve">
+    <value>Som al cor del mercat. Vine a conèixer-nos i descobreix la diferència.</value>
+  </data>
+  <data name="VisitTitle" xml:space="preserve">
+    <value>Visita'ns</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adreça</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>Tots els drets reservats</value>
+  </data>
+  <data name="FooterSmall" xml:space="preserve">
+    <value>Qualitat, tradició i proximitat.</value>
   </data>
 </root>

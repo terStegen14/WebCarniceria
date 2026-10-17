@@ -9,14 +9,37 @@
     };
 }
 
-<p class="text-muted small mb-3">@Model.TotalCount producte(s)</p>
+<p class="text-muted small mb-3">@LangResource["CatalogCount", Model.TotalCount]</p>
+@if (Model.OtherMatches.Count > 0)
+{
+    var othersTotal = Model.OtherMatches.Sum(m => m.Count);
 
+    <div class="other-matches mb-4">
+        <span class="me-1">
+            @(Model.TotalCount == 0 ? LangResource["CatalogNotInCategory", Model.Q ?? ""] : LangResource["CatalogAlsoFound", Model.Q ?? ""])
+    </span>
+
+    @foreach (var m in Model.OtherMatches)
+        {
+            <button type="button" class="btn btn-sm btn-custom-outline" data-category-jump="@m.CategoryId">
+                @m.Name (@m.Count)
+            </button>
+        }
+
+        <button type="button" class="btn btn-sm btn-custom" data-category-jump="">
+            @LangResource["CatalogWholeCatalog", Model.TotalCount + othersTotal]
+        </button>
+    </div>
+}
 @if (!Model.Catalog.Products.Any())
 {
-    <div class="text-center py-5">
-        <p class="text-muted fs-5">No hem trobat cap producte amb aquests filtres.</p>
-        <button type="button" class="btn btn-custom" data-reset>Veure tot el catàleg</button>
-    </div>
+    if (Model.OtherMatches.Count == 0)
+    {
+        <div class="text-center py-5">
+            <p class="text-muted fs-5">@LangResource["CatalogNoResults"]</p>
+            <button type="button" class="btn btn-custom" data-reset>@LangResource["CatalogViewAll"]</button>
+        </div>
+    }
 }
 else
 {
@@ -79,7 +102,7 @@ else
                             }
                             else
                             {
-                                <span class="text-muted">Preu a consultar</span>
+                                <span class="text-muted">@LangResource["CatalogPriceOnRequest"]</span>
                             }
                         </div>
                     </div>

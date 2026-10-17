@@ -117,6 +117,165 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BadgeYears" xml:space="preserve">
+    <value>Años sirviendo a la comunidad</value>
+  </data>
+  <data name="CatalogAll" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="CatalogAlsoFound" xml:space="preserve">
+    <value>También hemos encontrado «{0}» en:</value>
+  </data>
+  <data name="CatalogCategoryFallback" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="CatalogClear" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="CatalogCount" xml:space="preserve">
+    <value>{0} producto(s)</value>
+  </data>
+  <data name="CatalogLoadError" xml:space="preserve">
+    <value>No se ha podido cargar el catálogo. Inténtalo de nuevo.</value>
+  </data>
+  <data name="CatalogNoResults" xml:space="preserve">
+    <value>No hemos encontrado ningún producto con estos filtros.</value>
+  </data>
+  <data name="CatalogNotInCategory" xml:space="preserve">
+    <value>No hemos encontrado «{0}» en esta categoría.</value>
+  </data>
+  <data name="CatalogPriceOnRequest" xml:space="preserve">
+    <value>Precio a consultar</value>
+  </data>
+  <data name="CatalogSearchButton" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="CatalogSearchPlaceholder" xml:space="preserve">
+    <value>Buscar un producto...</value>
+  </data>
+  <data name="CatalogSortName" xml:space="preserve">
+    <value>Nombre (A-Z)</value>
+  </data>
+  <data name="CatalogSortPriceAsc" xml:space="preserve">
+    <value>Precio: de menor a mayor</value>
+  </data>
+  <data name="CatalogSortPriceDesc" xml:space="preserve">
+    <value>Precio: de mayor a menor</value>
+  </data>
+  <data name="CatalogTitle" xml:space="preserve">
+    <value>Catálogo de productos</value>
+  </data>
+  <data name="CatalogViewAll" xml:space="preserve">
+    <value>Ver todo el catálogo</value>
+  </data>
+  <data name="CatalogWholeCatalog" xml:space="preserve">
+    <value>Todo el catálogo ({0})</value>
+  </data>
+  <data name="CatDeliText" xml:space="preserve">
+    <value>Jamones ibéricos, lomo embuchado, cecina y una selección de quesos de diferentes regiones.</value>
+  </data>
+  <data name="CatDeliTitle" xml:space="preserve">
+    <value>Charcutería selecta</value>
+  </data>
+  <data name="CatFreshText" xml:space="preserve">
+    <value>Ternera, cerdo y cordero de primera calidad. Seleccionamos las mejores piezas para garantizar sabor y ternura.</value>
+  </data>
+  <data name="CatFreshTitle" xml:space="preserve">
+    <value>Carnes frescas</value>
+  </data>
+  <data name="CatKicker" xml:space="preserve">
+    <value>Nuestro producto</value>
+  </data>
+  <data name="CatLead" xml:space="preserve">
+    <value>Calidad superior en cada producto. Trabajamos con proveedores locales de confianza.</value>
+  </data>
+  <data name="CatPreparedText" xml:space="preserve">
+    <value>Hamburguesas caseras, albóndigas, pinchos morunos y otros preparados listos para cocinar.</value>
+  </data>
+  <data name="CatPreparedTitle" xml:space="preserve">
+    <value>Productos elaborados</value>
+  </data>
+  <data name="CatSausagesText" xml:space="preserve">
+    <value>Chorizo, longaniza, butifarra y más. Elaborados siguiendo recetas tradicionales con ingredientes naturales.</value>
+  </data>
+  <data name="CatSausagesTitle" xml:space="preserve">
+    <value>Embutidos artesanos</value>
+  </data>
+  <data name="CatTitle" xml:space="preserve">
+    <value>Nuestras categorías</value>
+  </data>
+  <data name="CatViewProducts" xml:space="preserve">
+    <value>Ver productos</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Cerrado</value>
+  </data>
+  <data name="DayFri" xml:space="preserve">
+    <value>Viernes</value>
+  </data>
+  <data name="DayMon" xml:space="preserve">
+    <value>Lunes</value>
+  </data>
+  <data name="DaySat" xml:space="preserve">
+    <value>Sábado</value>
+  </data>
+  <data name="DaySun" xml:space="preserve">
+    <value>Domingo</value>
+  </data>
+  <data name="DayThu" xml:space="preserve">
+    <value>Jueves</value>
+  </data>
+  <data name="DayTue" xml:space="preserve">
+    <value>Martes</value>
+  </data>
+  <data name="DayWed" xml:space="preserve">
+    <value>Miércoles</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ErrorBack" xml:space="preserve">
+    <value>Volver al inicio</value>
+  </data>
+  <data name="ErrorText" xml:space="preserve">
+    <value>No hemos podido procesar tu petición. Vuelve a intentarlo en unos instantes.</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Ha ocurrido un error</value>
+  </data>
+  <data name="FeatureLocal" xml:space="preserve">
+    <value>Producto local</value>
+  </data>
+  <data name="FeatureService" xml:space="preserve">
+    <value>Atención personalizada</value>
+  </data>
+  <data name="FeatureYears" xml:space="preserve">
+    <value>Más de 25 años</value>
+  </data>
+  <data name="FooterTagline" xml:space="preserve">
+    <value>Carnicería de confianza desde 1999</value>
+  </data>
+  <data name="HeroButtonCatalog" xml:space="preserve">
+    <value>Ver catálogo</value>
+  </data>
+  <data name="HeroButtonMore" xml:space="preserve">
+    <value>Descubre más</value>
+  </data>
+  <data name="HeroTagline" xml:space="preserve">
+    <value>Calidad y tradición en cada corte desde 1999</value>
+  </data>
+  <data name="HistoryP1" xml:space="preserve">
+    <value>Desde 1999, Sílvia y Víctor han servido a la comunidad del mercado con dedicación y pasión. Lo que empezó como un pequeño negocio de carnes, hoy es una carnicería de referencia conocida por su calidad excepcional y su trato cercano.</value>
+  </data>
+  <data name="HistoryP2" xml:space="preserve">
+    <value>Nos enorgullece mantener viva la tradición del buen corte, seleccionando personalmente cada pieza y trabajando solo con proveedores que comparten nuestros valores de calidad y sostenibilidad.</value>
+  </data>
+  <data name="HistoryTitle" xml:space="preserve">
+    <value>Nuestra historia</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
   <data name="NavbarCatalog" xml:space="preserve">
     <value>Catálogo</value>
   </data>
@@ -125,5 +284,35 @@
   </data>
   <data name="NavbarHome" xml:space="preserve">
     <value>Inicio</value>
+  </data>
+  <data name="OfferBadge" xml:space="preserve">
+    <value>Oferta</value>
+  </data>
+  <data name="OfferBuyGet" xml:space="preserve">
+    <value>{0}+{1} gratis</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Horario</value>
+  </data>
+  <data name="StallAddress" xml:space="preserve">
+    <value>Mercat de Montserrat, Puesto 10</value>
+  </data>
+  <data name="VisitLead" xml:space="preserve">
+    <value>Estamos en el corazón del mercado. Ven a conocernos y descubre la diferencia.</value>
+  </data>
+  <data name="VisitTitle" xml:space="preserve">
+    <value>Visítanos</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>Todos los derechos reservados</value>
+  </data>
+  <data name="FooterSmall" xml:space="preserve">
+    <value>Calidad, tradición y proximidad.</value>
   </data>
 </root>

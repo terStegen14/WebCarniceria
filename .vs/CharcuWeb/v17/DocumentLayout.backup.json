@@ -1,88 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Trabajos\\WebCarniceria\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\pages\\catalog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\pages\\catalog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\pages\\catalog\\_productresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\pages\\catalog\\_productresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\pages\\catalog\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\pages\\catalog\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|c:\\trabajos\\webcarniceria\\charcuweb\\viewmodels\\offerinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DE83BA8-179C-42B4-B014-5DFF22E2742D}|CharcuWeb\\TradicioCarnica.csproj|solutionrelative:charcuweb\\viewmodels\\offerinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OfferInfo.cs",
-              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\ViewModels\\OfferInfo.cs",
-              "RelativeDocumentMoniker": "CharcuWeb\\ViewModels\\OfferInfo.cs",
-              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\ViewModels\\OfferInfo.cs",
-              "RelativeToolTip": "CharcuWeb\\ViewModels\\OfferInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T21:06:28.61Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_ProductResults.cshtml",
-              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Catalog\\_ProductResults.cshtml",
-              "RelativeDocumentMoniker": "CharcuWeb\\Pages\\Catalog\\_ProductResults.cshtml",
-              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Catalog\\_ProductResults.cshtml*",
-              "RelativeToolTip": "CharcuWeb\\Pages\\Catalog\\_ProductResults.cshtml*",
-              "ViewState": "AgIAACIAAAAAAAAAAAAUwFMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-12T21:01:34.426Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Catalog\\Index.cshtml",
-              "RelativeDocumentMoniker": "CharcuWeb\\Pages\\Catalog\\Index.cshtml",
-              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Catalog\\Index.cshtml*",
-              "RelativeToolTip": "CharcuWeb\\Pages\\Catalog\\Index.cshtml*",
-              "ViewState": "AgIAANAAAAAAAAAAAAAUwAIBAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-12T20:25:47.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Catalog\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "CharcuWeb\\Pages\\Catalog\\Index.cshtml.cs",
-              "ToolTip": "C:\\Trabajos\\WebCarniceria\\CharcuWeb\\Pages\\Catalog\\Index.cshtml.cs*",
-              "RelativeToolTip": "CharcuWeb\\Pages\\Catalog\\Index.cshtml.cs*",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAcwF4AAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T20:25:34.577Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

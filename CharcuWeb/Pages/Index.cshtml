@@ -1,284 +1,180 @@
 ﻿@page
 @model TradicioCarnica.Pages.IndexModel
 @{
-    <section class="hero vh-100 d-flex align-items-center text-center text-white"
-             style="position:relative; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.png') ;">
+    ViewData["Title"] = LangResource["NavbarHome"];
+}
 
-        <div class="container">
+<section class="hero vh-100 d-flex align-items-center text-center text-white"
+         style="position:relative; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.png');">
+    <div class="container">
+        <h1 class="display-3 fw-bold" style="font-size: 96px; font-weight: 500;">
+            Tradició càrnica<br>Sílvia i Víctor
+        </h1>
+        <p class="lead">@LangResource["HeroTagline"]</p>
 
-            <h1 class="display-3 fw-bold" style="font-size: 96px; font-weight: 500;">
-                Tradició càrnica<br>Sílvia i Víctor
-
-            </h1>
-            <p class="lead" style="font-family: 32px">Qualitat i tradició en cada tall des de 1999</p>
-
-            <div class="mt-4">
-
-                <a asp-page="/Catalog/Index" class="btn btn-custom btn-lg me-2">
-                    Veure Catàleg
-                </a>
-
-                <a href="#categorias" class="btn btn-outline-light btn-lg">
-                    Descobreix més
-                </a>
-
-            </div>            
-
+        <div class="mt-4">
+            <a asp-page="/Catalog/Index" class="btn btn-custom btn-lg me-2">@LangResource["HeroButtonCatalog"]</a>
+            <a href="#categorias" class="btn btn-outline-light btn-lg">@LangResource["HeroButtonMore"]</a>
         </div>
-        <a href="#categorias" class="scroll-down">
-            <i class="bi bi-arrow-down-short"></i>
-        </a>
-    </section>
+    </div>
+    <a href="#categorias" class="scroll-down"><i class="bi bi-arrow-down-short"></i></a>
+</section>
 
-    <section id="categorias" class="py-5">
-        <div class="container">
+<section id="categorias" class="py-5">
+    <div class="container">
 
-            <div class="text-center mb-5">
-                <span class="section-kicker">El nostre producte</span>
-                <h2 class="section-title">Les nostres categories</h2>
-                <p class="section-lead">Qualitat superior en cada producte. Treballem amb proveïdors locals de confiança.</p>
-            </div>
-
-            <div class="row g-4">
-
-                <div class="col-md-6">
-                    <a asp-page="/Catalog/Index" class="cat-tile">
-                        <img src="/images/carnes.png" alt="Carns fresques" />
-                        <div class="cat-overlay">
-                            <h3>Carns Fresques</h3>
-                            <p>Vadella, porc i xai de primera qualitat. Seleccionem les millors peces per garantir sabor i tendresa.</p>
-                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-6">
-                    <a asp-page="/Catalog/Index" class="cat-tile">
-                        <img src="/images/embutidos.png" alt="Embotits artesans" />
-                        <div class="cat-overlay">
-                            <h3>Embotits Artesans</h3>
-                            <p>Xoriço, llonganissa, botifarra i més. Elaborats seguint receptes tradicionals amb ingredients naturals.</p>
-                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-6">
-                    <a asp-page="/Catalog/Index" class="cat-tile">
-                        <img src="/images/jamones.png" alt="Xarcuteria selecta" />
-                        <div class="cat-overlay">
-                            <h3>Xarcuteria Selecta</h3>
-                            <p>Pernils ibèrics, llom embotit, cecina i una selecció de formatges de diferents regions.</p>
-                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-6">
-                    <a asp-page="/Catalog/Index" class="cat-tile">
-                        <img src="/images/embutidos.png" alt="Productes elaborats" />
-                        <div class="cat-overlay">
-                            <h3>Productes Elaborats</h3>
-                            <p>Hamburgueses casolanes, mandonguilles, pinxos moruns i d'altres preparats llestos per cuinar.</p>
-                            <span class="cat-link">Veure productes <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
+        <div class="text-center mb-5">
+            <span class="section-kicker">@LangResource["CatKicker"]</span>
+            <h2 class="section-title">@LangResource["CatTitle"]</h2>
+            <p class="section-lead">@LangResource["CatLead"]</p>
         </div>
-    </section>
-
-    <section id="nosotros" class="container py-5">
-        <div class="row align-items-center">
-
-            <!-- TEXTO -->
-            <div class="col-md-6">
-                <h2 class="fw-bold mb-3" style="font-size: 40px;">La Nostra Història</h2>
-                <p style="font-size: 18px;">
-                    Des de 1999, Sílvia i Víctor han servit a la comunitat del mercat amb dedicació i passió. El que va començar com un petit negoci de carns, avui és una carnisseria de referència coneguda per la seva qualitat excepcional i tracte proper.
-                </p>
-                <p style="font-size: 18px;">
-                    Ens enorgulleix mantenir viva la tradició del bon tall, seleccionant personalment cada peça i treballant només amb proveïdors que comparteixen els nostres valors de qualitat i sostenibilitat.
-                </p>
-
-                <div class="d-flex gap-4 mt-4">
-                    <div class="feature">
-                        <div class="icon">∞</div>
-                        <p>Més de 35 anys</p>
-                    </div>
-                    <div class="feature">
-                        <div class="icon">❤</div>
-                        <p>Producte local</p>
-                    </div>
-                    <div class="feature">
-                        <div class="icon">👥</div>
-                        <p>Atenció personalitzada</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- IMAGEN -->
-            <div class="col-md-6 position-relative">
-                <img src="/images/hero.png" class="img-fluid rounded shadow">
-
-                <div class="badge-custom">
-                    <strong>25+</strong><br>
-                    <small>Anys servint a la comunitat</small>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contacto" class="container py-5">
-        <h2 class="text-center fw-bold mb-2" style="font-size: 40px;">Visita'ns</h2>
-        <p class="text-center mb-5 text-muted">Som al cor del mercat. Vine a conèixer-nos i descobreix la diferència.</p>
 
         <div class="row g-4">
-
-            <!-- HORARIO -->
             <div class="col-md-6">
-                <div class="info-card p-4">
-                    <h4 class="mb-3 d-flex align-items-center gap-2">
-                        <span class="info-icon-circle"><i class="bi bi-clock-fill"></i></span>
-                        Horari
-                    </h4>
-
-                    <div class="schedule">
-                        <div class="closed"><span>Diumenge</span><span>Tancat</span></div>
-                        <div class="closed"><span>Dilluns</span><span>Tancat</span></div>
-                        <div class="active"><span>Dimarts</span><span>8:00 - 14:30</span></div>
-                        <div class="active"><span>Dimecres</span><span>8:00 - 14:30</span></div>
-                        <div class="active"><span>Dijous</span><span>8:00 - 14:30 / 16:00 - 20:00</span></div>
-                        <div class="active"><span>Divendres</span><span>7:00 - 20:00</span></div>
-                        <div class="active"><span>Dissabte</span><span>7:00 - 14:30</span></div>
+                <a asp-page="/Catalog/Index" class="cat-tile">
+                    <img src="/images/carnes.png" alt="@LangResource["CatFreshTitle"]" />
+                    <div class="cat-overlay">
+                        <h3>@LangResource["CatFreshTitle"]</h3>
+                        <p>@LangResource["CatFreshText"]</p>
+                        <span class="cat-link">@LangResource["CatViewProducts"] <i class="bi bi-arrow-right"></i></span>
                     </div>
-
-                    <div class="contact mt-4 d-flex flex-column gap-3">
-                        <div class="contact-item">
-                            <span class="info-icon-circle"><i class="bi bi-telephone-fill"></i></span>
-                            <div>
-                                <p class="mb-0 text-muted small">Telèfon</p>
-                                <strong>933 54 87 20</strong>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="info-icon-circle"><i class="bi bi-envelope-fill"></i></span>
-                            <div>
-                                <p class="mb-0 text-muted small">Email</p>
-                                <strong>charcusyv@gmail.com</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
 
-            <!-- UBICACIÓN -->
             <div class="col-md-6">
-                <div class="info-card p-4">
-                    <h4 class="mb-3 d-flex align-items-center gap-2">
-                        <span class="info-icon-circle"><i class="bi bi-geo-alt-fill"></i></span>
-                        Ubicació
-                    </h4>
-                    <p class="mb-1"><strong>Mercat de Montserrat, Parada 10</strong></p>
-                    <p class="text-muted">Via Favència, 247</p>
-
-                    <div class="rounded overflow-hidden">
-                        <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                width="100%" height="400" style="border:0;" loading="lazy">
-                        </iframe>
+                <a asp-page="/Catalog/Index" class="cat-tile">
+                    <img src="/images/embutidos.png" alt="@LangResource["CatSausagesTitle"]" />
+                    <div class="cat-overlay">
+                        <h3>@LangResource["CatSausagesTitle"]</h3>
+                        <p>@LangResource["CatSausagesText"]</p>
+                        <span class="cat-link">@LangResource["CatViewProducts"] <i class="bi bi-arrow-right"></i></span>
                     </div>
-                </div>
+                </a>
             </div>
 
+            <div class="col-md-6">
+                <a asp-page="/Catalog/Index" class="cat-tile">
+                    <img src="/images/jamones.png" alt="@LangResource["CatDeliTitle"]" />
+                    <div class="cat-overlay">
+                        <h3>@LangResource["CatDeliTitle"]</h3>
+                        <p>@LangResource["CatDeliText"]</p>
+                        <span class="cat-link">@LangResource["CatViewProducts"] <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6">
+                <a asp-page="/Catalog/Index" class="cat-tile">
+                    <img src="/images/embutidos.png" alt="@LangResource["CatPreparedTitle"]" />
+                    <div class="cat-overlay">
+                        <h3>@LangResource["CatPreparedTitle"]</h3>
+                        <p>@LangResource["CatPreparedText"]</p>
+                        <span class="cat-link">@LangResource["CatViewProducts"] <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    // <section id="nosotros" class="container py-5">
-    //     <div class="row align-items-center">
+<section id="nosotros" class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2 class="fw-bold mb-3" style="font-size: 40px;">@LangResource["HistoryTitle"]</h2>
+            <p style="font-size: 18px;">@LangResource["HistoryP1"]</p>
+            <p style="font-size: 18px;">@LangResource["HistoryP2"]</p>
 
-    //         <!-- TEXTO -->
-    //         <div class="col-md-6">
-    //             <h2 class="fw-bold mb-3">La Nostra Història</h2>
-    //             <p>
-    //                 Des de 1999, Sílvia i Víctor han servit a la comunitat del mercat amb dedicació i passió. El que va començar com un petit negoci de carns, avui és una carnisseria de referència coneguda per la seva qualitat excepcional i tracte proper.
+            <div class="d-flex gap-4 mt-4">
 
-    //                 Ens enorgulleix mantenir viva la tradició del bon tall, seleccionant personalment cada peça i treballant només amb proveïdors que comparteixen els nostres valors de qualitat i sostenibilitat.
-    //             </p>
+                <div class="feature">
+                    <div class="icon">
+                        <i class="fa-solid fa-infinity" aria-hidden="true"></i>
+                    </div>
+                    <p>@LangResource["FeatureYears"]</p>
+                </div>
 
-    //             <div class="d-flex gap-4 mt-4">
-    //                 <div class="feature">
-    //                     <div class="icon">∞</div>
-    //                     <p>Més de 35 anys</p>
-    //                 </div>
-    //                 <div class="feature">
-    //                     <div class="icon">❤</div>
-    //                     <p>Producte local</p>
-    //                 </div>
-    //                 <div class="feature">
-    //                     <div class="icon">👥</div>
-    //                     <p>Atenció personalitzada</p>
-    //                 </div>
-    //             </div>
-    //         </div>
+                <div class="feature">
+                    <div class="icon">
+                        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <p>@LangResource["FeatureLocal"]</p>
+                </div>
 
-    //         <!-- IMAGEN -->
-    //         <div class="col-md-6 position-relative">
-    //             <img src="/images/hero.png" class="img-fluid rounded shadow">
+                <div class="feature">
+                    <div class="icon">
+                        <i class="fa-solid fa-users" aria-hidden="true"></i>
+                    </div>
+                    <p>@LangResource["FeatureService"]</p>
+                </div>
 
-    //             <div class="badge-custom">
-    //                 <strong>25+</strong><br>
-    //                 <small>Anys servint a la comunitat</small>
-    //             </div>
-    //         </div>
+            </div>
+        </div>
 
-    //     </div>
-    // </section>
+        <div class="col-md-6 position-relative">
+            <img src="/images/hero.png" class="img-fluid rounded shadow" alt="">
+            <div class="badge-custom">
+                <strong>25+</strong><br>
+                <small>@LangResource["BadgeYears"]</small>
+            </div>
+        </div>
+    </div>
+</section>
 
-    // <section id="contacto" class="container py-5">
-    //     <h2 class="text-center fw-bold mb-2">Visita’ns</h2>
-    //     <p class="text-center mb-5">Som al cor del mercat. Vine a conèixer-nos i descobreix la diferència.</p>
+<section id="contacto" class="container py-5">
+    <h2 class="text-center fw-bold mb-2" style="font-size: 40px;">@LangResource["VisitTitle"]</h2>
+    <p class="text-center mb-5 text-muted">@LangResource["VisitLead"]</p>
 
-    //     <div class="row g-4">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="info-card p-4">
+                <h4 class="mb-3 d-flex align-items-center gap-2">
+                    <span class="info-icon-circle"><i class="bi bi-clock-fill"></i></span>
+                    @LangResource["Schedule"]
+                </h4>
 
-    //         <!-- HORARIO -->
-    //         <div class="col-md-6">
-    //             <div class="card p-4 shadow-sm">
-    //                 <h4 class="mb-3">Horari</h4>
+                <div class="schedule">
+                    <div class="closed"><span>@LangResource["DaySun"]</span><span>@LangResource["Closed"]</span></div>
+                    <div class="closed"><span>@LangResource["DayMon"]</span><span>@LangResource["Closed"]</span></div>
+                    <div class="active"><span>@LangResource["DayTue"]</span><span>8:00 - 14:30</span></div>
+                    <div class="active"><span>@LangResource["DayWed"]</span><span>8:00 - 14:30</span></div>
+                    <div class="active"><span>@LangResource["DayThu"]</span><span>8:00 - 14:30 / 16:00 - 20:00</span></div>
+                    <div class="active"><span>@LangResource["DayFri"]</span><span>7:00 - 20:00</span></div>
+                    <div class="active"><span>@LangResource["DaySat"]</span><span>7:00 - 14:30</span></div>
+                </div>
 
-    //                 <div class="schedule">
-    //                     <div><span>Diumenge</span><span>Tancat</span></div>
-    //                     <div><span>Dilluns</span><span>Tancat</span></div>
-    //                     <div class="active"><span>Dimarts</span><span>8:00 - 14:30</span></div>
-    //                     <div><span>Dimecres</span><span>8:00 - 14:30</span></div>
-    //                     <div><span>Dijous</span><span>8:00 - 20:00</span></div>
-    //                     <div><span>Divendres</span><span>7:00 - 20:00</span></div>
-    //                     <div><span>Dissabte</span><span>7:00 - 14:30</span></div>
-    //                 </div>
+                <div class="contact mt-4 d-flex flex-column gap-3">
+                    <div class="contact-item">
+                        <span class="info-icon-circle"><i class="bi bi-telephone-fill"></i></span>
+                        <div>
+                            <p class="mb-0 text-muted small">@LangResource["Phone"]</p>
+                            <strong>933 54 87 20</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="info-icon-circle"><i class="bi bi-envelope-fill"></i></span>
+                        <div>
+                            <p class="mb-0 text-muted small">@LangResource["Email"]</p>
+                            <strong>charcusyv@gmail.com</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    //                 <div class="contact mt-4">
-    //                     <p><strong>Telèfon:</strong> 933 54 87 20</p>
-    //                     <p><strong>Email:</strong> charcusyv@gmail.com</p>
-    //                 </div>
-    //             </div>
-    //         </div>
+        <div class="col-md-6">
+            <div class="info-card p-4">
+                <h4 class="mb-3 d-flex align-items-center gap-2">
+                    <span class="info-icon-circle"><i class="bi bi-geo-alt-fill"></i></span>
+                    @LangResource["Location"]
+                </h4>
+                <p class="mb-1"><strong>@LangResource["StallAddress"]</strong></p>
+                <p class="text-muted">Via Favència, 247</p>
 
-    //         <!-- UBICACIÓN -->
-    //         <div class="col-md-6">
-    //             <div class="card p-4 shadow-sm">
-    //                 <h4 class="mb-3">Ubicació</h4>
-    //                 <p><strong>Mercat de Montserrat, Parada 10</strong></p>
-    //                 <p>Via Favència, 247</p>
-
-    //                 <iframe src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed"
-    //                         width="100%" height="250" style="border:0;" loading="lazy">
-    //                 </iframe>
-    //             </div>
-    //         </div>
-
-    //     </div>
-    // </section>
-
-   
-}
+                <div class="rounded overflow-hidden">
+                    <iframe src="https://maps.google.com/maps?q=Mercat+de+Montserrat,+Via+Fav%C3%A8ncia+247,+Barcelona&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="400" style="border:0;" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
